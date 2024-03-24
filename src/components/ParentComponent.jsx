@@ -4,14 +4,16 @@ import RegisterForm from './RegisterForm';
 const ParentComponent = () => {
   // Define initial form data state
   const [formData, setFormData] = useState({
-    firstname: '',
-    lastname: '',
+    first_name: '',
+    last_name: '',
     email: '',
     qualification: '',
     experience: '',
-    phonenumber: '',
+    phone_number: '',
     password: ''
   });
+
+
 
   // Handle form submission
   const handleSubmit = (event) => {
