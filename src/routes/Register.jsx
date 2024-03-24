@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import RegisterForm from "../components/RegisterForm";
+
 /*const Register = () => {
 
     const [guideFormData, setGuideFormData] = useState({
@@ -109,7 +108,8 @@ import RegisterForm from "../components/RegisterForm";
 }*/
 
 
-
+import React, { useState } from 'react';
+import RegisterForm from "../components/RegisterForm";
 
 
 const Register = () => {
@@ -195,7 +195,7 @@ const [guideFormData, setGuideFormData] = useState({
         </div>
       </div>
       
-      <RegisterForm/>
+      
     </div>
   );
 };
