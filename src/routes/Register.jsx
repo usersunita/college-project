@@ -114,8 +114,8 @@ import RegisterForm from "../components/RegisterForm";
 
 const Register = () => {
 const [guideFormData, setGuideFormData] = useState({
-    firstname: '',
-    lastname: '',
+    FirstName: '',
+    LastName: '',
     email: '',
     password: '',
     phonenumber: '',
@@ -124,8 +124,8 @@ const [guideFormData, setGuideFormData] = useState({
   });
 
   const [clientFormData, setClientFormData] = useState({
-    firstname: '',
-    lastname: '',
+    FirstName: '',
+    LastName: '',
     email: '',
     password: '',
     phonenumber: ''
