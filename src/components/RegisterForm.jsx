@@ -7,18 +7,18 @@ const RegisterForm = ({ formData, formType, onSubmit, onChange }) => {
       <div className="row register-form">
         <div className="col-md-6">
           <InputField
-            name="FirstName"
+            name="firstName"
             type="text"
             placeholder="First Name *"
-            value={formData.FirstName}
+            value={formData.firstName}
             onChange={onChange}
             required
           />
           <InputField
-            name="LastName"
+            name="lastName"
             type="text"
             placeholder="Last Name *"
-            value={formData.LastName}
+            value={formData.lastName}
             onChange={onChange}
             required
           />
