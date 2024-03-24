@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import RegisterForm from "../components/RegisterForm";
-import ParentComponent from "../components/ParentComponent";
 /*const Register = () => {
 
     const [guideFormData, setGuideFormData] = useState({
@@ -21,37 +20,7 @@ import ParentComponent from "../components/ParentComponent";
         phone_number: ''
       });
     
-      // Handler for guide form submission
-      const handleGuideFormSubmit = (e) => {
-        e.preventDefault();
-        console.log('Guide form submitted:', guideFormData);
-        // Add code to handle form submission here
-      };
-    
-      // Handler for client form submission
-      const handleClientFormSubmit = (e) => {
-        e.preventDefault();
-        console.log('Client form submitted:', clientFormData);
-        // Add code to handle form submission here
-      };
-    
-      // Handler to update guide form data
-      const handleGuideFormChange = (e) => {
-        const { name, value } = e.target;
-        setGuideFormData({
-          ...guideFormData,
-          [name]: value
-        });
-      };
-    
-      // Handler to update client form data
-      const handleClientFormChange = (e) => {
-        const { name, value } = e.target;
-        setClientFormData({
-          ...clientFormData,
-          [name]: value
-        });
-      };
+      
   return (
     <div>
       <div className="container register">
@@ -145,21 +114,21 @@ import ParentComponent from "../components/ParentComponent";
 
 const Register = () => {
 const [guideFormData, setGuideFormData] = useState({
-    first_name: '',
-    last_name: '',
+    firstname: '',
+    lastname: '',
     email: '',
     password: '',
-    phone_number: '',
+    phonenumber: '',
     qualification: '',
     experience: ''
   });
 
   const [clientFormData, setClientFormData] = useState({
-    first_name: '',
-    last_name: '',
+    firstname: '',
+    lastname: '',
     email: '',
     password: '',
-    phone_number: ''
+    phonenumber: ''
   });
 
   const handleFormChange = (e) => {
@@ -225,7 +194,7 @@ const [guideFormData, setGuideFormData] = useState({
           </div>
         </div>
       </div>
-      <ParentComponent/>
+      
       <RegisterForm/>
     </div>
   );

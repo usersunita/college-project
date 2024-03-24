@@ -3,7 +3,6 @@ import "./Navbar.css";
 import MenuItems from "./MenuItems";
 import { NavLink} from 'react-router-dom';
 import { FaTimes, FaBars } from 'react-icons/fa';
-
 import  Register from '../routes/Register';
 
 const Navbar = () => {
