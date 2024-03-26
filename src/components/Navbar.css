@@ -38,10 +38,10 @@
 .nav-links a{
   padding-right: 10px;
 }
-.nav-links-mobile{
-display: none;
-}
-button{
+/*.nav-links-mobile{
+display:none;
+}*/
+.nav-links-mobile button{
   padding: 0.5rem 1rem;
   white-space: nowrap;
   border-radius: 0.3rem;

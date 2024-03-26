@@ -7,11 +7,16 @@ import  Register from './Register';
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
 
   const handleClick = () => {
     setClicked(!clicked);
+    setShowRegisterForm(false); 
   }
-
+  const handleRegisterButtonClick = () => {
+    setShowRegisterForm(true);
+    setClicked(false); // Close the menu when register button is clicked
+  }
   return (
   
     <nav className='NavbarItems'>
@@ -31,10 +36,13 @@ const Navbar = () => {
             </NavLink>
           </li>
         ))}
-        <button  onClick={handleClick}>Register</button>
-      </ul>
-      { clicked && <Register/>}
+       <li>
+        </li>
+          <button  onClick={handleRegisterButtonClick}>Register</button>
+          { clicked && <Register/>}
+          </ul>
     </nav>
+
   );
 };
 

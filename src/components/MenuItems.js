@@ -26,9 +26,11 @@ const MenuItems = [
     icon:"fa-solid fa-address-book", 
   },
   {
-    title:"Sign Up",
-    url :"/signup",
+    title:"Register",
+    url :"/Register",
+    //cName:"nav-links",
     cName:"nav-links-mobile",  
+    type:"button",
   },
 ]
 
