@@ -3,7 +3,7 @@ import "./Navbar.css";
 import MenuItems from "./MenuItems";
 import { NavLink} from 'react-router-dom';
 import { FaTimes, FaBars } from 'react-icons/fa';
-import  Register from '../routes/Register';
+import  Register from './Register';
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
@@ -31,9 +31,9 @@ const Navbar = () => {
             </NavLink>
           </li>
         ))}
-        <button type='submit' onClick={handleClick}>Register</button>
-              { clicked && <Register/>}
+        <button  onClick={handleClick}>Register</button>
       </ul>
+      { clicked && <Register/>}
     </nav>
   );
 };
