@@ -31,7 +31,7 @@ const Navbar = () => {
             </NavLink>
           </li>
         ))}
-        <button onClick={handleClick}>Register</button>
+        <button type='submit' onClick={handleClick}>Register</button>
               { clicked && <Register/>}
       </ul>
     </nav>

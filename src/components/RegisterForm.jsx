@@ -1,89 +1,25 @@
-import React from 'react'
-import InputField from './InputField';
+
+import React from 'react';
+import './Registration.css';
 const RegisterForm = ({ formData, formType, onSubmit, onChange }) => {
   return (
     <form onSubmit={onSubmit}>
-      <h3 className="register-heading">Form for {formType}</h3>
-      <div className="row register-form">
-        <div className="col-md-6">
-          <InputField
-            name="firstName"
-            type="text"
-            placeholder="First Name *"
-            value={formData.firstName}
-            onChange={onChange}
-            required
-          />
-          <InputField
-            name="lastName"
-            type="text"
-            placeholder="Last Name *"
-            value={formData.lastName}
-            onChange={onChange}
-            required
-          />
-          <InputField
-            name="email"
-            type="email"
-            placeholder="Your Email *"
-            value={formData.email}
-            onChange={onChange}
-            required
-          />
-          {formType === 'Guide' && (
-            <>
-              <InputField
-                name="password"
-                type="password"
-                placeholder="Password *"
-                value={formData.password}
-                onChange={onChange}
-                required
-              />
-              <InputField
-                name="qualification"
-                type="text"
-                placeholder="Your Qualification *"
-                value={formData.qualification}
-                onChange={onChange}
-                required
-              />
-              <InputField
-                name="experience"
-                type="text"
-                placeholder="Your experience *"
-                value={formData.experience}
-                onChange={onChange}
-                required
-              />
-            </>
-          )}
+    
+      <input type="text" name="firstName" value={formData.firstName} onChange={onChange} placeholder="First Name" />
+      <input type="text" name="lastName" value={formData.lastName} onChange={onChange} placeholder="Last Name" />
+      <input type="email" name="email" value={formData.email} onChange={onChange} placeholder="Email" />
+      <input type="password" name="password" value={formData.password} onChange={onChange} placeholder="Password" />
+      <input type="tel" name="phonenumber" value={formData.phonenumber} onChange={onChange} placeholder="Phone Number" />
+      {formType === 'Guide' && (
+        <div>
+          <input type="text" name="qualification" value={formData.qualification} onChange={onChange} placeholder="Qualification" />
+          <input type="text" name="experience" value={formData.experience} onChange={onChange} placeholder="Experience" />
         </div>
-        <div className="col-md-6">
-          <InputField
-            name="phonenumber"
-            type="text"
-            minLength="10"
-            maxLength="10"
-            placeholder="Your Phone *"
-            value={formData.phonenumber}
-            onChange={onChange}
-            required
-          />
-          <InputField
-            name="password"
-            type="password"
-            placeholder="Password *"
-            value={formData.password}
-            onChange={onChange}
-            required={formType === 'Client'}
-          />
-          <input type="submit" className="btnRegister" value="Register" />
-        </div>
-      </div>
-      <InputField/>
+      )}
+      <input type="submit" value={`Register as ${formType}`} />
     </form>
   );
 };
 
 export default RegisterForm;
+
