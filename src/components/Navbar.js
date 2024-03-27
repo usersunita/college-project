@@ -61,7 +61,6 @@ const Navbar = () => {
         //style={customStyles}
       >
         <button onClick={closeModal}>Close</button>
-        <div>I am a modal</div>
         <div >
           {handleClick && <Register/>}
           </div>
