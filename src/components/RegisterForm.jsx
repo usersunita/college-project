@@ -20,8 +20,8 @@ const RegisterForm = ({ formData, formType, onSubmit, onChange }) => {
           <input type="text" name="experience" value={formData.experience} onChange={onChange} placeholder="Experience" /><br />
         </>
       )}
-      <input type="submit" className="btnRegister" value="Register" />
-    </form>
+      <input type="submit"  className="btnRegister" value="Register" />
+    </form> 
   );
 };
 
