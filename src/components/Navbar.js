@@ -6,7 +6,7 @@ import { FaTimes, FaBars } from 'react-icons/fa';
 import Modal from "react-modal"
 import Register from './Register';
 
-/*const customStyles = {
+const customStyles = {
   content: {
     top: '50%',
     left: '50%',
@@ -15,7 +15,7 @@ import Register from './Register';
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
   },
-};*/
+};
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
@@ -58,7 +58,7 @@ const Navbar = () => {
       <Modal
         isOpen={openModal}
         onRequestClose={closeModal}
-        //style={customStyles}
+        style={customStyles}
       >
         <button onClick={closeModal}>Close</button>
         <div >

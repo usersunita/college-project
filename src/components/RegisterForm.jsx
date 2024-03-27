@@ -11,7 +11,7 @@ const RegisterForm = ({ formData, formType, onSubmit, onChange }) => {
           <input type="text" name="lastName" value={formData.lastName} onChange={onChange} placeholder="Last Name" /><br />
           <input type="email" name="email" value={formData.email} onChange={onChange} placeholder="Email" /><br />
           <input type="password" name="password" value={formData.password} onChange={onChange} placeholder="Password" /><br />
-          <input type="tel" name="phonenumber" value={formData.phonenumber} onChange={onChange} placeholder="Phone Number" />
+          <input type="tel" name="phonenumber" value={formData.phonenumber} onChange={onChange} placeholder="Phone Number" /><br/>
         
     
       {formType === 'Guide' && (
