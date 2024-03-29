@@ -6,6 +6,7 @@ import { FaTimes, FaBars } from 'react-icons/fa';
 import Modal from "react-modal"
 import Register from './Register';
 
+
 const customStyles = {
   content: {
     top: '50%',
@@ -66,8 +67,11 @@ const Navbar = () => {
           </div>
       </Modal>
       {clicked && <Register />}
+    
     </nav>
   );
 };
 
 export default Navbar;
+
+

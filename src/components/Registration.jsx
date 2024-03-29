@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import RegisterForm from "../components/RegisterForm";
+import Login from './Login';
 
 const Registration = () => {
     const [guideFormData, setGuideFormData] = useState({
@@ -21,6 +22,7 @@ const Registration = () => {
     });
 
     const [activeTab, setActiveTab] = useState('guide');
+    const [showLogin, setShowLogin] = useState(false);
 
     const handleFormChange = (e) => {
         const { name, value } = e.target;
@@ -52,6 +54,10 @@ const Registration = () => {
     const handleTabChange = (tab) => {
         setActiveTab(tab);
     };
+    const handleClick = () => {
+        // Set showLogin state to true to render the Login component
+        setShowLogin(true);
+    };
 
     return (
         <div className="container register">
@@ -59,7 +65,8 @@ const Registration = () => {
                 <div className="col-md-3 register-left">
                     <h3>Welcome</h3>
                     <p>Travelling – it leaves you speechless, then turns you into a storyteller</p>
-                    <input type="submit" value="Login" /><br />
+                    {showLogin && <Login />}
+                    <input type="submit" value="Login" onClick={handleClick}/><br />
                 </div>
                 <div className="col-md-9 register-right">
                     <ul class="nav nav-tabs nav-justified" id="myTab" role='tablist'>
@@ -102,4 +109,3 @@ const Registration = () => {
 };
 
 export default Registration;
-
