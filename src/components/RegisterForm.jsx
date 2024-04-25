@@ -3,24 +3,32 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './Registration.css';
 
+
+
 const RegisterForm = ({ formData, formType, onSubmit, onChange }) => {
+  // Ensure formData properties are not null
+  const { firstName, lastName, email, password, phonenumber, qualification, experience, photo } = formData;
+  const handleButtonClick = async (e) => {
+    e.preventDefault();
+    await onSubmit(e); // Call the onSubmit function passed from the parent component
+    window.location.reload(); // Refresh the page after form submission
+  };
   return (
     <form onSubmit={onSubmit}>
+      <input type="text" name="firstName" value={firstName || ''} onChange={onChange} placeholder="First Name" /><br />
+      <input type="text" name="lastName" value={lastName || ''} onChange={onChange} placeholder="Last Name" /><br />
+      <input type="email" name="email" value={email || ''} onChange={onChange} placeholder="Email" /><br />
+      <input type="password" name="password" value={password || ''} onChange={onChange} placeholder="Password" /><br />
+      <input type="tel" name="phonenumber" value={phonenumber || ''} onChange={onChange} placeholder="Phone Number" /><br/>
       
-          <input type="text" name="firstName" value={formData.firstName} onChange={onChange} placeholder="First Name" /><br />
-          <input type="text" name="lastName" value={formData.lastName} onChange={onChange} placeholder="Last Name" /><br />
-          <input type="email" name="email" value={formData.email} onChange={onChange} placeholder="Email" /><br />
-          <input type="password" name="password" value={formData.password} onChange={onChange} placeholder="Password" /><br />
-          <input type="tel" name="phonenumber" value={formData.phonenumber} onChange={onChange} placeholder="Phone Number" /><br/>
-        
-    
       {formType === 'Guide' && (
         <>
-          <input type="text" name="qualification" value={formData.qualification} onChange={onChange} placeholder="Qualification" /><br />
-          <input type="text" name="experience" value={formData.experience} onChange={onChange} placeholder="Experience" /><br />
+          <input type="text" name="qualification" value={qualification || ''} onChange={onChange} placeholder="Qualification" /><br />
+          <input type="text" name="experience" value={experience || ''} onChange={onChange} placeholder="Experience" /><br />
+          <input type="file" name="photo" value={photo || ''} onChange={onChange}></input>
         </>
       )}
-      <input type="submit"  className="btnRegister" value="Register" />
+      <button type="submit" className="btnRegister" onClick={handleButtonClick}>Register</button>
     </form> 
   );
 };

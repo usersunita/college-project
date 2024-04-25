@@ -3,9 +3,11 @@ import "./Navbar.css";
 import MenuItems from "./MenuItems";
 import { NavLink } from 'react-router-dom';
 import { FaTimes, FaBars } from 'react-icons/fa';
-import Modal from "react-modal"
+import Modal from "react-modal";
 import Register from './Register';
 
+// Set the app element for the modal
+Modal.setAppElement('#root');
 
 const customStyles = {
   content: {
@@ -26,12 +28,8 @@ const Navbar = () => {
     setClicked(!clicked);
   }
 
-  const openModalFunc = () => {
-    setOpenModal(true);
-  }
-
-  const closeModal = () => {
-    setOpenModal(false);
+  const toggleModal = () => {
+    setOpenModal(!openModal);
   }
 
   return (
@@ -52,26 +50,22 @@ const Navbar = () => {
           </li>
         ))}
         <li>
-          <button onClick={openModalFunc}>Register</button>
+          <button onClick={toggleModal}>Register</button>
         </li>
       </ul>
 
       <Modal
         isOpen={openModal}
-        onRequestClose={closeModal}
+        onRequestClose={toggleModal}
         style={customStyles}
       >
-        <button onClick={closeModal}>Close</button>
-        <div >
-          {handleClick && <Register/>}
-          </div>
+        <button onClick={toggleModal}>Close</button>
+        <div>
+          <Register />
+        </div>
       </Modal>
-      {clicked && <Register />}
-    
     </nav>
   );
 };
 
 export default Navbar;
-
-
