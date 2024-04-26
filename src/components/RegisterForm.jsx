@@ -5,14 +5,14 @@ import './Registration.css';
 
 
 
-const RegisterForm = ({ formData, formType, onSubmit, onChange }) => {
+const RegisterForm = ({ formData, formType, onSubmit, onChange, handlePhotoChange }) => {
   // Ensure formData properties are not null
-  const { firstName, lastName, email, password, phonenumber, qualification, experience, photo } = formData;
-  const handleButtonClick = async (e) => {
+  const { firstName, lastName, email, password, phonenumber, qualification, experience} = formData;
+  /*const handleButtonClick = async (e) => {
     e.preventDefault();
     await onSubmit(e); // Call the onSubmit function passed from the parent component
     window.location.reload(); // Refresh the page after form submission
-  };
+  };*/
   return (
     <form onSubmit={onSubmit}>
       <input type="text" name="firstName" value={firstName || ''} onChange={onChange} placeholder="First Name" /><br />
@@ -25,13 +25,13 @@ const RegisterForm = ({ formData, formType, onSubmit, onChange }) => {
         <>
           <input type="text" name="qualification" value={qualification || ''} onChange={onChange} placeholder="Qualification" /><br />
           <input type="text" name="experience" value={experience || ''} onChange={onChange} placeholder="Experience" /><br />
-          <input type="file" name="photo" value={photo || ''} onChange={onChange}></input>
+          <input type="file" className="form-control" id="photo" name="photo" accept="image/*" onChange={handlePhotoChange}/>
         </>
       )}
-      <button type="submit" className="btnRegister" onClick={handleButtonClick}>Register</button>
+      <button type="submit" className="btnRegister"  >Register</button>
     </form> 
   );
 };
 
 export default RegisterForm;
-
+//onClick={handleButtonClick}
