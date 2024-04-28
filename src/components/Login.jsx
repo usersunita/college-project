@@ -146,12 +146,13 @@ import './Login.css'; // Import CSS file for styling
 
 function Login() {
     const navigate = useNavigate();
-    const [username, setUsername] = useState('');
+    //const [username, setUsername] = useState('');
+    const[email , setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleUsernameChange = (e) => {
-        setUsername(e.target.value);
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
     };
 
     const handlePasswordChange = (e) => {
@@ -166,7 +167,7 @@ function Login() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ email, password }),
         })
         .then(response => response.text())
         .then(data => {
@@ -188,10 +189,10 @@ function Login() {
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    name="username"
-                    placeholder="Username"
-                    value={username}
-                    onChange={handleUsernameChange}
+                    name="email"
+                    placeholder="email"
+                    value={email}
+                    onChange={handleEmailChange}
                     required
                 />
                 <input
