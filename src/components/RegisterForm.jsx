@@ -8,11 +8,11 @@ import './Registration.css';
 const RegisterForm = ({ formData, formType, onSubmit, onChange, handlePhotoChange }) => {
   // Ensure formData properties are not null
   const { firstName, lastName, email, password, phonenumber, qualification, experience} = formData;
-  /*const handleButtonClick = async (e) => {
+  const handleButtonClick = async (e) => {
     e.preventDefault();
     await onSubmit(e); // Call the onSubmit function passed from the parent component
     window.location.reload(); // Refresh the page after form submission
-  };*/
+  };
   return (
     <form onSubmit={onSubmit}>
       <input type="text" name="firstName" value={firstName || ''} onChange={onChange} placeholder="First Name" /><br />
@@ -28,10 +28,10 @@ const RegisterForm = ({ formData, formType, onSubmit, onChange, handlePhotoChang
           <input type="file" className="form-control" id="photo" name="photo" accept="image/*" onChange={handlePhotoChange}/>
         </>
       )}
-      <button type="submit" className="btnRegister"  >Register</button>
+      <button type="submit" className="btnRegister" onSubmit={handleButtonClick}  >Register</button>
     </form> 
   );
 };
 
 export default RegisterForm;
-//onClick={handleButtonClick}
+

@@ -6,6 +6,7 @@ import { FaTimes, FaBars } from 'react-icons/fa';
 import Modal from "react-modal";
 import Register from './Register';
 
+
 // Set the app element for the modal
 Modal.setAppElement('#root');
 
