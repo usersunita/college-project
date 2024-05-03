@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import RegisterForm from "../components/RegisterForm";
 import Login from './Login';
+import { useNavigate } from 'react-router-dom';
 
 const Registration = () => {
-    const [guideFormData, setGuideFormData, formData, setFormData]  = useState({
+    const [guideFormData, setGuideFormData] = useState({
         firstName: '',
         lastName: '',
         email: '',
@@ -12,7 +12,7 @@ const Registration = () => {
         phonenumber: '',
         qualification: '',
         experience: '',
-        photo: null// Add a state for photo file
+        photo: null // Add a state for photo file
     });
 
     const [clientFormData, setClientFormData] = useState({
@@ -25,6 +25,7 @@ const Registration = () => {
 
     const [activeTab, setActiveTab] = useState('guide');
     const [showLogin, setShowLogin] = useState(false);
+    const navigate = useNavigate();
 
     const handleFormChange = (e) => {
         const { name, value } = e.target;
@@ -68,6 +69,7 @@ const Registration = () => {
             console.error('Error:', error);
         }
     };
+
     const handlePhotoChange = (e) => {
         const file = e.target.files[0];
         setGuideFormData({
@@ -76,6 +78,7 @@ const Registration = () => {
         });
         console.log('Photo state:', guideFormData.photo);
     };
+
     const handleGuideFormSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -84,24 +87,27 @@ const Registration = () => {
                 formData.append(key, guideFormData[key]);
             }
             formData.append('formType', 'Guide');
-            
-            formData.append('photo',guideFormData.photo);
+
+            formData.append('photo', guideFormData.photo);
             const response = await fetch('http://localhost/PHP%20BACKEND/index.php', {
                 method: 'POST',
                 body: formData
             });
-    
+
             const contentType = response.headers.get('content-type');
             if (contentType && contentType.includes('application/json')) {
                 const data = await response.json();
                 console.log(data);
+                if (data === 'Login successful') {
+                    // Redirect to dashboard upon successful login
+                    navigate('/dashboard');
+                }
             }
         } catch (error) {
             console.error('Error:', error.message);
             // Handle the error here, such as displaying an error message to the user
         }
     };
-    
 
     return (
         <div className="container register">
@@ -109,8 +115,8 @@ const Registration = () => {
                 <div className="col-md-3 register-left">
                     <h3>Welcome</h3>
                     <p>Travelling – it leaves you speechless, then turns you into a storyteller</p>
-                    {showLogin && <Login />}
-                    <input type="submit" value="Login" onClick={handleClick} /><br />
+                    {showLogin && <Login  />}
+                    <button type="submit" value="Login" onClick={handleClick} /><br />
                 </div>
                 <div className="col-md-9 register-right">
                     <ul className="nav nav-tabs nav-justified" id="myTab" role='tablist'>
@@ -130,7 +136,7 @@ const Registration = () => {
                                     formType="Guide"
                                     onSubmit={handleGuideFormSubmit}
                                     onChange={handleFormChange}
-                                    setFormData={setFormData}
+                                    setFormData={setGuideFormData}
                                     handlePhotoChange={handlePhotoChange} // Pass the photo change handler
                                 />
                             </div>
