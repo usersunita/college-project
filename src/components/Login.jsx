@@ -17,7 +17,7 @@ function Login({ handleSubmit }) {
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost/PHP%20BACKEND/index.php', {
+        fetch('http://localhost/PHP%20BACKEND/login.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ function Login({ handleSubmit }) {
         })
         .catch(error => {
             console.error('Error:', error);
-            setErrorMessage('An error occurred. Please try again.'); // Display generic error message
+            setErrorMessage('An error occurred. Please try again.'); 
         });
     };
 

@@ -49,6 +49,9 @@ const Registration = () => {
     const handleClick = () => {
         setShowLogin(true);
     };
+    const handleSubmit= () => {
+       // setShowLogin(true);
+    };
 
     const handleClientFormSubmit = async (e) => {
         e.preventDefault();
@@ -115,9 +118,12 @@ const Registration = () => {
                 <div className="col-md-3 register-left">
                     <h3>Welcome</h3>
                     <p>Travelling – it leaves you speechless, then turns you into a storyteller</p>
-                    {showLogin && <Login  />}
-                    <button type="submit" value="Login" onClick={handleClick} /><br />
-                </div>
+                    {showLogin ? (
+                        <Login handleSubmit={handleSubmit} />
+                    ) : (
+                        <button type="submit" value="Login" onClick={handleClick}>Login</button>
+                    )}
+                   </div> 
                 <div className="col-md-9 register-right">
                     <ul className="nav nav-tabs nav-justified" id="myTab" role='tablist'>
                         <li className="nav-item">
