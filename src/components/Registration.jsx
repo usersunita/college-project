@@ -66,10 +66,23 @@ const Registration = () => {
                 method: 'POST',
                 body: formData
             });
-            const data = await response.json();
+           /* const data = await response.json();
             console.log(data); // Log the response from the backend
         } catch (error) {
             console.error('Error:', error);
+        }*/
+        const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+                const data = await response.json();
+                console.log(data);
+                if (data === 'Login successful') {
+                    // Redirect to dashboard upon successful login
+                    navigate('/Admin');
+                }
+            }
+        } catch (error) {
+            console.error('Error:', error.message);
+            
         }
     };
 
@@ -108,7 +121,6 @@ const Registration = () => {
             }
         } catch (error) {
             console.error('Error:', error.message);
-            // Handle the error here, such as displaying an error message to the user
         }
     };
 

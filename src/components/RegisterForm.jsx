@@ -28,6 +28,7 @@ const RegisterForm = ({ formData, formType, onSubmit, onChange, handlePhotoChang
           <input type="file" className="form-control" id="photo" name="photo" accept="image/*" onChange={handlePhotoChange}/>
         </>
       )}
+      
       <button type="submit" className="btnRegister" onSubmit={handleButtonClick}  >Register</button>
     </form> 
   );
