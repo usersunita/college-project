@@ -2,14 +2,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from "zod";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+
 // Define your Zod schema for login
 const loginSchema = z.object({
   email: z.string().email({message:"email is required"}),
   password: z.string().min(1, 'Password is required'),
 });
-
-// Extract the type of your login schema
-// type Tlogin = z.infer<typeof loginSchema>;
 
 function LoginForm() {
   const { register, handleSubmit,formState:{errors}} = useForm({
@@ -20,8 +19,11 @@ function LoginForm() {
     }
   });
 
+  const navigate = useNavigate(); 
   const onSubmit = (data) => {
-    console.log("data",data); // Here you can handle the form submission, e.g., send data to the server
+    console.log("data",data); 
+    navigate('/dashboard');
+    window.location.reload();
   };
 
   return (

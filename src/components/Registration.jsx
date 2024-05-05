@@ -10,8 +10,8 @@ const Registration = () => {
         email: '',
         password: '',
         phonenumber: '',
-        qualification: '',
-        experience: '',
+        qualification: null,
+        experience: null,
         photo: null // Add a state for photo file
     });
 
@@ -50,7 +50,7 @@ const Registration = () => {
         setShowLogin(true);
     };
     const handleSubmit= () => {
-       // setShowLogin(true);
+        setShowLogin(true);
     };
 
     const handleClientFormSubmit = async (e) => {

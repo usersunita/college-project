@@ -6,6 +6,7 @@ import Contact from './routes/Contact';
 import Service from './routes/Service';
 import DefaultRoute from './routes/DefaultRoute';
  import Dashboard from './components/Dashboard';
+ import Guides from './components/Guides';
 import Admin from './Admin/Admin';
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         </Route>
         <Route path="admin" element={<Admin/>}/>
         <Route path='/dashboard' element={<Dashboard/>} />
+        //<Route path='/guide' element={<Guides/>}/>
     
       </Routes>
   </BrowserRouter>

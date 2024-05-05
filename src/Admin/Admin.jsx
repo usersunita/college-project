@@ -3,7 +3,7 @@ import React from 'react'
 const Admin = () => {
   return (
     <div>
-      i am admin sunita aapsat
+      i am admin 
     
     </div>
   )
