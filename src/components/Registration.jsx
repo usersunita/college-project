@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import RegisterForm from "../components/RegisterForm";
-import Login from './Login';
+import LoginForm from './loginwithzod';
 import { useNavigate } from 'react-router-dom';
 
 const Registration = () => {
@@ -131,7 +131,7 @@ const Registration = () => {
                     <h3>Welcome</h3>
                     <p>Travelling – it leaves you speechless, then turns you into a storyteller</p>
                     {showLogin ? (
-                        <Login handleSubmit={handleSubmit} />
+                        <LoginForm />
                     ) : (
                         <button type="submit" value="Login" onClick={handleClick}>Login</button>
                     )}

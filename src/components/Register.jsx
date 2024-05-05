@@ -4,7 +4,8 @@ import Registration from './Registration'
 const Register = () => {
   return (
     <div>
-      <Registration/>
+    
+      {/*<Registration/>*/}
       {/*<Footer/>*/}
     </div>
   )

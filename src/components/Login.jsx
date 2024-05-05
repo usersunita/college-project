@@ -14,8 +14,9 @@ function Login({ handleSubmit }) {
         setPassword(e.target.value);
     };
 
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
+    const handleFormSubmit = (data) => {
+        // e.preventDefault();
+        console.log("login data")
 
         fetch('http://localhost/PHP%20BACKEND/login.php', {
             method: 'POST',

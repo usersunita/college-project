@@ -1,17 +1,14 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './Registration.css';
 
-
-
 const RegisterForm = ({ formData, formType, onSubmit, onChange, handlePhotoChange }) => {
-  // Ensure formData properties are not null
+  
   const { firstName, lastName, email, password, phonenumber, qualification, experience} = formData;
   const handleButtonClick = async (e) => {
     e.preventDefault();
-    await onSubmit(e); // Call the onSubmit function passed from the parent component
-    window.location.reload(); // Refresh the page after form submission
+    await onSubmit(e); 
+    window.location.reload(); 
   };
   return (
     <form onSubmit={onSubmit}>
