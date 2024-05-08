@@ -8,6 +8,7 @@ import DefaultRoute from './routes/DefaultRoute';
  import Dashboard from './components/Dashboard';
  import Guides from './components/Guides';
 import Admin from './Admin/Admin';
+import Booking from './components/Booking';
 const App = () => {
   return (
     <>
@@ -21,12 +22,11 @@ const App = () => {
         </Route>
         <Route path="admin" element={<Admin/>}/>
         <Route path='/dashboard' element={<Dashboard/>} />
-        //<Route path='/guide' element={<Guides/>}/>
+        <Route path='/guide' element={<Guides/>}/>
+        <Route path='/booking' element={<Booking/>}/>
     
       </Routes>
   </BrowserRouter>
-
-        
     </>
       
   )

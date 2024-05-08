@@ -22,7 +22,7 @@ function LoginForm() {
   const navigate = useNavigate(); 
   const onSubmit = (data) => {
     console.log("data",data); 
-    navigate('/dashboard');
+    navigate('/guide');
     window.location.reload();
   };
 
