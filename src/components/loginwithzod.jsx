@@ -2,9 +2,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from "zod";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+import { useNavigate } from 'react-router-dom'; 
 
-// Define your Zod schema for login
+
 const loginSchema = z.object({
   email: z.string().email({message:"email is required"}),
   password: z.string().min(1, 'Password is required'),

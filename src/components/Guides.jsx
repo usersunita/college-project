@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Guides.css';
 import testguide from '../Images/testguide1.jpg';
-
+import Booking from './Booking';
 const Guides = () => {
+  const [isBookingOpen, setIsBookingOpen] = useState(false); // State variable to control form visibility
+
+  const openBookingForm = () => {
+    setIsBookingOpen(true); // Function to open the booking form
+  };
   return (
     <>
       <h2>Book Your Preferred Guide</h2>
@@ -19,7 +24,7 @@ const Guides = () => {
               <strong>Rating:</strong> 
          
             </div>
-            <div className='profile-button'><a href='mailto:usermail@gmail.com'>Send request</a></div>
+            <div className='profile-button'><a href='#' onClick={openBookingForm}>Send request</a></div>
           </div>
         </div>
         
@@ -31,7 +36,7 @@ const Guides = () => {
             <div className='profile-description'>
               I have 6 years of experience in this field. 
             </div>
-            <div className='profile-button'><a href='mailto:usermail@gmail.com'>Send request</a></div>
+            <div className='profile-button'><a href='#' onClick={openBookingForm}>Send request</a></div>
           </div>
         </div>
         
@@ -43,11 +48,11 @@ const Guides = () => {
             <div className='profile-description'>
               I have 6 years of experience in this field. 
             </div>
-            <div className='profile-button'><a href='mailto:usermail@gmail.com'>Send request</a></div>
+            <div className='profile-button'><a href='#' onClick={openBookingForm}>Send request</a></div>
           </div>
         </div>
-        
       </div>
+      {isBookingOpen && <Booking onClose={() => setIsBookingOpen(false)} />}
     </>
   );
 };
