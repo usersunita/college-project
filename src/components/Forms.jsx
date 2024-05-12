@@ -20,7 +20,7 @@ const Forms = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost/PHP%20BACKEND/contact.php', {
+    fetch('http://localhost/PHP%20backend/contactus.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -40,7 +40,7 @@ const Forms = () => {
   return (
     <div className='form-container'>
       <h1>Send a message to us!</h1>
-      <form action='http://localhost/PHP%20BACKEND/contact.php' method='post' onSubmit={handleSubmit}>
+      <form action='http://localhost/PHP%20backend/contactus.php' method='post' onSubmit={handleSubmit}>
         <input name="name" placeholder='Your Name *' value={formData.name} onChange={handleInputChange}/>
         <input name='email' placeholder='Email *' value={formData.email} onChange={handleInputChange}/>
         <input name='subject' placeholder='Subject *' value={formData.subject} onChange={handleInputChange}/>
