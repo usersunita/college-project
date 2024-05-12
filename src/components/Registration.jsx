@@ -49,7 +49,7 @@ const Registration = () => {
     const handleClick = () => {
         setShowLogin(true);
     };
-    const handleSubmit= () => {
+    const handleSubmit = () => {
         setShowLogin(true);
     };
 
@@ -66,12 +66,12 @@ const Registration = () => {
                 method: 'POST',
                 body: formData
             });
-           /* const data = await response.json();
-            console.log(data); // Log the response from the backend
-        } catch (error) {
-            console.error('Error:', error);
-        }*/
-        const contentType = response.headers.get('content-type');
+            /* const data = await response.json();
+             console.log(data); // Log the response from the backend
+         } catch (error) {
+             console.error('Error:', error);
+         }*/
+            const contentType = response.headers.get('content-type');
             if (contentType && contentType.includes('application/json')) {
                 const data = await response.json();
                 console.log(data);
@@ -82,7 +82,7 @@ const Registration = () => {
             }
         } catch (error) {
             console.error('Error:', error.message);
-            
+
         }
     };
 
@@ -105,10 +105,12 @@ const Registration = () => {
             formData.append('formType', 'Guide');
 
             formData.append('photo', guideFormData.photo);
-            const response = await fetch('http://localhost/PHP%20BACKEND/index.php', {
+            console.log(formData)
+            const response = await fetch('http://localhost/PHP-backend/index.php', {
                 method: 'POST',
                 body: formData
             });
+
 
             const contentType = response.headers.get('content-type');
             if (contentType && contentType.includes('application/json')) {
@@ -135,7 +137,7 @@ const Registration = () => {
                     ) : (
                         <button type="submit" value="Login" onClick={handleClick}>Login</button>
                     )}
-                   </div> 
+                </div>
                 <div className="col-md-9 register-right">
                     <ul className="nav nav-tabs nav-justified" id="myTab" role='tablist'>
                         <li className="nav-item">
