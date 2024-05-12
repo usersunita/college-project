@@ -62,7 +62,7 @@ const Registration = () => {
             }
             formData.append('formType', 'Client'); // Add formType to indicate client registration
 
-            const response = await fetch('http://localhost/PHP%20BACKEND/index.php', {
+            const response = await fetch('http://localhost/backend/index.php', {
                 method: 'POST',
                 body: formData
             });
@@ -106,7 +106,7 @@ const Registration = () => {
 
             formData.append('photo', guideFormData.photo);
             console.log(formData)
-            const response = await fetch('http://localhost/PHP-backend/index.php', {
+            const response = await fetch('http://localhost/PHP%20backend/index.php', {
                 method: 'POST',
                 body: formData
             });

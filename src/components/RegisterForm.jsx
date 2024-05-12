@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './registration.css';
+import './Registration.css';
 
 const RegisterForm = ({ formData, formType, onSubmit, onChange, handlePhotoChange }) => {
 
