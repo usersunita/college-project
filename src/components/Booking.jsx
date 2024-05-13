@@ -46,7 +46,7 @@ export default function Booking() {
   };
 // Fetch call should be inside the component function
 if (formData) {
-  fetch('http://localhost/PHP%20BACKEND/booking.php', {
+  fetch('http://localhost/php%20backend/guidebooking.php', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
