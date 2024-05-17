@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 
 // Define Zod schema for form validation
 const schema = z.object({
-  username:z.string().nonempty('Username is required'),
-  email:z.string().nonempty('email is required'),
+  username: z.string().nonempty('Username is required'),
+  email: z.string().nonempty('Email is required').email('Invalid email address'),
   date: z.string().nonempty('Date is required'),
   time: z.string().nonempty('Time is required'),
-  days: z.string(),
-  destination: z.string().nonempty('City is required'),
-  person: z.string(),
-  type: z.string(),
-  message: z.string(),
-  
+  days: z.string().nonempty('Number of days is required'),
+  destination: z.string().nonempty('Destination is required'),
+  person: z.string().nonempty('Number of persons is required'),
+  type: z.string().nonempty('Type of tour is required'),
+  message: z.string().nonempty('Message is required'),
 });
 
 function Modal({ isOpen, onClose, children }) {
@@ -22,7 +22,7 @@ function Modal({ isOpen, onClose, children }) {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title"> Guide Booking Form</h5>
+            <h5 className="modal-title">Guide Booking Form</h5>
             <button type="button" className="btn-close" aria-label="Close" onClick={onClose}></button>
           </div>
           <div className="modal-body">
@@ -35,45 +35,48 @@ function Modal({ isOpen, onClose, children }) {
 }
 
 export default function Booking() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(schema),
+  });
   const [isModalOpen, setIsModalOpen] = useState(true);
-  const [formData, setFormData] = useState(null); // Define formData state
+  const [formData, setFormData] = useState(null);
 
   const onSubmit = (data) => {
     console.log('Form submitted:', data);
-    setFormData(data); // Update formData state
-    setIsModalOpen(false);
+    setFormData(data);
   };
-// Fetch call should be inside the component function
-if (formData) {
-  fetch('http://localhost/php%20backend/guidebooking.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(formData),
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+
+  useEffect(() => {
+    if (formData) {
+      fetch('http://localhost/php%20backend/guidebooking.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        alert(data.message);
+        window.location.reload();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
     }
-    return response.json();
-  })
-  .then(data => {
-    alert(data.message);
-    window.location.reload();
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-}
+  }, [formData]);
 
   return (
     <>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <form onSubmit={handleSubmit(onSubmit)} method="POST">
           <div className='row g-3'>
-          <div className='col-md-6'>
+            <div className='col-md-6'>
               <label htmlFor='username' className='form-label'>Username</label>
               <input
                 type='text'
@@ -90,18 +93,18 @@ if (formData) {
                 type='email'
                 className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                 id='email'
-                placeholder='Enter ur Email'
+                placeholder='Enter your email'
                 {...register('email')}
               />
               {errors.email && <div className='invalid-feedback'>{errors.email.message}</div>}
             </div>
-          <div className='col-md-4'>
+            <div className='col-md-4'>
               <label htmlFor='date' className='form-label'>Date</label>
               <input
                 type='text'
                 className={`form-control ${errors.date ? 'is-invalid' : ''}`}
                 id='date'
-                placeholder='dd/mm/yy'
+                placeholder='dd/mm/yyyy'
                 {...register('date')}
               />
               {errors.date && <div className='invalid-feedback'>{errors.date.message}</div>}
@@ -109,10 +112,10 @@ if (formData) {
             <div className='col-md-4'>
               <label htmlFor='time' className='form-label'>Time</label>
               <input
-                type='number'
+                type='text'
                 className={`form-control ${errors.time ? 'is-invalid' : ''}`}
                 id='time'
-                placeholder='--:--:--'
+                placeholder='--:--'
                 {...register('time')}
               />
               {errors.time && <div className='invalid-feedback'>{errors.time.message}</div>}
@@ -123,7 +126,7 @@ if (formData) {
                 type='number'
                 className={`form-control ${errors.days ? 'is-invalid' : ''}`}
                 id='days'
-                placeholder='Number of Days of Tour'
+                placeholder='Number of days of tour'
                 {...register('days')}
               />
               {errors.days && <div className='invalid-feedback'>{errors.days.message}</div>}
@@ -132,7 +135,7 @@ if (formData) {
               <label htmlFor='destination' className='form-label'>Destination</label>
               <input
                 type='text'
-                placeholder='Your Destination'
+                placeholder='Your destination'
                 className={`form-control ${errors.destination ? 'is-invalid' : ''}`}
                 id='destination'
                 {...register('destination')}
@@ -140,10 +143,10 @@ if (formData) {
               {errors.destination && <div className='invalid-feedback'>{errors.destination.message}</div>}
             </div>
             <div className='col-md-4'>
-              <label htmlFor='person' className='form-label'>Number of Person</label>
+              <label htmlFor='person' className='form-label'>Number of Persons</label>
               <input
                 type='text'
-                placeholder='Number of person'
+                placeholder='Number of persons'
                 className={`form-control ${errors.person ? 'is-invalid' : ''}`}
                 id='person'
                 {...register('person')}
@@ -168,7 +171,7 @@ if (formData) {
               <textarea
                 className={`form-control ${errors.message ? 'is-invalid' : ''}`}
                 id='message'
-                placeholder='Write a message for Guide'
+                placeholder='Write a message for guide'
                 {...register('message')}
               />
               {errors.message && <div className='invalid-feedback'>{errors.message.message}</div>}

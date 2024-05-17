@@ -3,11 +3,12 @@ import './Guides.css';
 import testguide from '../Images/testguide1.jpg';
 import Booking from './Booking';
 import Star from './star';
+import { Feedback } from './Feedback';
 const Guides = () => {
-  const [isBookingOpen, setIsBookingOpen] = useState(false); // State variable to control form visibility
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const openBookingForm = () => {
-    setIsBookingOpen(true); // Function to open the booking form
+    setIsBookingOpen(true);
   };
   const reviews = 5;
   return (
@@ -24,8 +25,6 @@ const Guides = () => {
               <>Daily Rate:</> NRP.2500 <br />
               <>Location:</> Kathmandu, Nepal <br />
                  <Star stars={4} reviews={reviews}/>
-                  
-         
             </div>
             <div className='profile-button'><a href='#' onClick={openBookingForm}>Send request</a></div>
           </div>

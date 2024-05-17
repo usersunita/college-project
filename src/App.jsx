@@ -9,6 +9,7 @@ import DefaultRoute from './routes/DefaultRoute';
  import Guides from './components/Guides';
 import Admin from './Admin/Admin';
 import Booking from './components/Booking';
+import { Feedback } from './components/Feedback';
 const App = () => {
   return (
     <>
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/dashboard' element={<Dashboard/>} />
         <Route path='/guide' element={<Guides/>}/>
         <Route path='/booking' element={<Booking/>}/>
+        <Route path='/feedback' element={<Feedback/>}/>
       </Routes>
   </BrowserRouter>
     </>
