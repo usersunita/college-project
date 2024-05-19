@@ -52,40 +52,7 @@ const Registration = () => {
     const handleSubmit = () => {
         setShowLogin(true);
     };
-
-    const handleClientFormSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const formData = new FormData();
-            for (const key in clientFormData) {
-                formData.append(key, clientFormData[key]);
-            }
-            formData.append('formType', 'Client'); // Add formType to indicate client registration
-
-            const response = await fetch('http://localhost/php%20backend/register.php', {
-                method: 'POST',
-                body: formData
-            });
-            /* const data = await response.json();
-             console.log(data); // Log the response from the backend
-         } catch (error) {
-             console.error('Error:', error);
-         }*/
-            const contentType = response.headers.get('content-type');
-            if (contentType && contentType.includes('application/json')) {
-                const data = await response.json();
-                console.log(data);
-                if (data === 'Login successful') {
-                    // Redirect to dashboard upon successful login
-                    navigate('/Admin');
-                }
-            }
-        } catch (error) {
-            console.error('Error:', error.message);
-
-        }
-    };
-
+    
     const handlePhotoChange = (e) => {
         const file = e.target.files[0];
         setGuideFormData({
@@ -94,7 +61,6 @@ const Registration = () => {
         });
         console.log('Photo state:', guideFormData.photo);
     };
-
     const handleGuideFormSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -126,6 +92,38 @@ const Registration = () => {
         }
     };
 
+
+    const handleClientFormSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const formData = new FormData();
+            for (const key in clientFormData) {
+                formData.append(key, clientFormData[key]);
+            }
+            formData.append('formType', 'Client'); // Add formType to indicate client registration
+    
+            const response = await fetch('http://localhost/php%20backend/register.php', {
+                method: 'POST',
+                body: formData
+            });
+    
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+                const data = await response.json();
+                console.log(data);
+                if (data.message === 'Login successful') {
+                    navigate('/Admin');
+                } else {
+                    console.error(data.message);
+                }
+            } else {
+                const text = await response.text();
+                console.error('Unexpected response format:', text);
+            }
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    };
     return (
         <div className="container register">
             <div className="row">
