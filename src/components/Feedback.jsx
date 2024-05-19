@@ -95,7 +95,7 @@ import { FaStar } from 'react-icons/fa';
 
 const colors = { orange: "#FFBA5A", gray: "#a9a9a9" };
 
-export const Feedback = ({ guideId }) => { // Pass the guideId as a prop
+export const Feedback = ({ guideId }) => { 
   const stars = Array(5).fill(0);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
@@ -115,7 +115,7 @@ export const Feedback = ({ guideId }) => { // Pass the guideId as a prop
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = { rating: currentValue, feedback, guide_id: guideId }; // Include guide_id in the data
+    const data = { rating: currentValue, feedback, guide_id: guideId }; 
 
     fetch('http://localhost/php%20backend/feedback.php', {
       method: 'POST',
