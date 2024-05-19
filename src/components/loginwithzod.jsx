@@ -4,26 +4,44 @@ import { useForm } from 'react-hook-form';
 import * as z from "zod";
 import { useNavigate } from 'react-router-dom'; 
 
-
 const loginSchema = z.object({
-  email: z.string().email({message:"email is required"}),
+  email: z.string().email({ message: "Email is required" }),
   password: z.string().min(1, 'Password is required'),
 });
 
 function LoginForm() {
-  const { register, handleSubmit,formState:{errors}} = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(loginSchema),
-    defaultValues:{
-      email:"",
-      password:""
+    defaultValues: {
+      email: "",
+      password: ""
     }
   });
 
-  const navigate = useNavigate(); 
-  const onSubmit = (data) => {
-    console.log("data",data); 
-    navigate('/guide');
-    window.location.reload();
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch('http://localhost/php%20backend/login.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log('Success:', result);
+        navigate('/guide');
+        window.location.reload();
+      } else {
+        console.error('Error:', result.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
