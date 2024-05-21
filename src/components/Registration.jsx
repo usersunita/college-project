@@ -100,7 +100,7 @@ const Registration = () => {
             for (const key in clientFormData) {
                 formData.append(key, clientFormData[key]);
             }
-            formData.append('formType', 'Client'); // Add formType to indicate client registration
+            formData.append('formType', 'Client'); 
     
             const response = await fetch('http://localhost/php%20backend/register.php', {
                 method: 'POST',

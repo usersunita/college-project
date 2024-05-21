@@ -34,8 +34,15 @@ function LoginForm() {
 
       if (response.ok) {
         console.log('Success:', result);
-        navigate('/guide');
-        window.location.reload();
+        //navigate('/guide');
+        //window.location.reload();
+        if(result.role ==='admin'){
+          navigate('/admin');
+        }else if(result.role === 'guide'){
+          navigate('/home')
+        }else{
+          navigate('/Guide')
+        }
       } else {
         console.error('Error:', result.message);
       }

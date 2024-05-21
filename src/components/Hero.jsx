@@ -1,7 +1,8 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import "./Herostyle.css"
 import gokyo from "../Images/gokyo.jpg";
 const Hero = () => {
+  
   return (
     <div className="hero">
       <img alt='homeimg' src={gokyo}/>
