@@ -115,7 +115,7 @@ export const Feedback = ({ guideId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = { rating: currentValue, feedback, guide_id: guideId }; 
+    const data = { rating: currentValue, feedback: feedback, guide_id: guideId }; 
 
     fetch('http://localhost/php%20backend/feedback.php', {
       method: 'POST',
