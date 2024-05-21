@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from "zod";
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Email is required" }),
@@ -34,8 +34,15 @@ function LoginForm() {
 
       if (response.ok) {
         console.log('Success:', result);
-        navigate('/guide');
-        window.location.reload();
+        if (result.role === 'admin') {
+          // navigate to admin side maybe?
+          // navigate('/guide');
+          // window.location.reload();
+        } else if (result.role === 'guide') {
+          // navigate to home page?
+        } else {
+          // navigate the user to guide ko profiles or something
+        }
       } else {
         console.error('Error:', result.message);
       }
