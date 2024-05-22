@@ -95,7 +95,7 @@ import { FaStar } from 'react-icons/fa';
 
 const colors = { orange: "#FFBA5A", gray: "#a9a9a9" };
 
-export const Feedback = ({ guideId }) => { 
+export const Feedback = ({ guideId, userId }) => {
   const stars = Array(5).fill(0);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
@@ -115,7 +115,7 @@ export const Feedback = ({ guideId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = { rating: currentValue, feedback: feedback, guide_id: guideId }; 
+    const data = { rating: currentValue, feedback, guide_id: guideId, user_id: userId };
 
     fetch('http://localhost/php%20backend/feedback.php', {
       method: 'POST',
@@ -124,14 +124,14 @@ export const Feedback = ({ guideId }) => {
       },
       body: JSON.stringify(data),
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success:', data);
-      //window.location.reload();
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        //window.location.reload();
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
 
   return (

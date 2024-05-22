@@ -3,6 +3,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from "zod";
 import { useNavigate } from 'react-router-dom';
+import Session from 'react-session-api'
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Email is required" }),
@@ -33,6 +34,7 @@ function LoginForm() {
       const result = await response.json();
 
       if (response.ok) {
+        Session.set("user_id", result.user_id);
         console.log('Success:', result);
         //navigate('/guide');
         //window.location.reload();

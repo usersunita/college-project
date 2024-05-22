@@ -5,7 +5,7 @@ import Booking from './Booking';
 import Star from './star';
 import { Feedback } from './Feedback';
 
-const Guides = () => {
+const Guides = ({ userId }) => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [guides, setGuides] = useState([]);
   const [showFeedback, setShowFeedback] = useState(null); // Track which guide's feedback form is open
@@ -31,7 +31,7 @@ const Guides = () => {
           <div key={guide.id} className='profile-container'>
             <div className="gradiant"></div>
             <div className='profile-down'>
-             <img src={guide.image_path || fallbackImageUrl} alt={guide.name} />
+              <img src={guide.image_path || fallbackImageUrl} alt={guide.name} />
               <div className='profile-title'>{guide.name}</div>
               <div className='profile-description'>
                 <>Language:</> {guide.languages} <br />
@@ -45,7 +45,7 @@ const Guides = () => {
               <div className='profile-button'>
                 <button onClick={() => setShowFeedback(guide.id)}>Give Feedback</button>
               </div>
-              {showFeedback === guide.id && <Feedback />}
+              {showFeedback === guide.id && <Feedback guideId={guide.id} userId={userId} />}
             </div>
           </div>
         ))}
