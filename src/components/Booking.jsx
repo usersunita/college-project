@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -5,8 +6,6 @@ import * as z from 'zod';
 
 // Define Zod schema for form validation
 const schema = z.object({
-  username: z.string().nonempty('Username is required'),
-  email: z.string().nonempty('Email is required').email('Invalid email address'),
   date: z.string().nonempty('Date is required'),
   time: z.string().nonempty('Time is required'),
   days: z.string().nonempty('Number of days is required'),
@@ -34,7 +33,7 @@ function Modal({ isOpen, onClose, children }) {
   );
 }
 
-export default function Booking() {
+export default function Booking({ guideId, userId }) {
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(schema),
   });
@@ -42,8 +41,16 @@ export default function Booking() {
   const [formData, setFormData] = useState(null);
 
   const onSubmit = (data) => {
-    console.log('Form submitted:', data);
-    setFormData(data);
+    // Add guideId and userId to the form data
+    const completeData = {
+      ...data,
+      guide_id: guideId,
+      client_id: userId,
+      status: 'pending' // Set the default status
+    };
+
+    console.log('Form submitted:', completeData);
+    setFormData(completeData);
   };
 
   useEffect(() => {
@@ -55,19 +62,19 @@ export default function Booking() {
         },
         body: JSON.stringify(formData),
       })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        alert(data.message);
-        window.location.reload();
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          alert(data.message);
+          window.location.reload();
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
     }
   }, [formData]);
 
@@ -76,28 +83,6 @@ export default function Booking() {
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <form onSubmit={handleSubmit(onSubmit)} method="POST">
           <div className='row g-3'>
-            <div className='col-md-6'>
-              <label htmlFor='username' className='form-label'>Username</label>
-              <input
-                type='text'
-                className={`form-control ${errors.username ? 'is-invalid' : ''}`}
-                id='username'
-                placeholder='Username'
-                {...register('username')}
-              />
-              {errors.username && <div className='invalid-feedback'>{errors.username.message}</div>}
-            </div>
-            <div className='col-md-6'>
-              <label htmlFor='email' className='form-label'>Email</label>
-              <input
-                type='email'
-                className={`form-control ${errors.email ? 'is-invalid' : ''}`}
-                id='email'
-                placeholder='Enter your email'
-                {...register('email')}
-              />
-              {errors.email && <div className='invalid-feedback'>{errors.email.message}</div>}
-            </div>
             <div className='col-md-4'>
               <label htmlFor='date' className='form-label'>Date</label>
               <input
@@ -185,3 +170,4 @@ export default function Booking() {
     </>
   );
 }
+

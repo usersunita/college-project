@@ -1,7 +1,6 @@
 import React from 'react'
 import "./Aboutus.css"
 import Guides from "./Guides"
-import Session from 'react-session-api'
 
 const Aboutus = () => {
   return (
@@ -19,8 +18,7 @@ const Aboutus = () => {
       <h1>Vision</h1>
       <p>Our vision is to be the most trusted and renowned organization by making satisfactory to the clients.</p>
 
-      {Session.get("user_id")}
-      <Guides userId={Session.get("user_id")} />
+
     </div>
   )
 }

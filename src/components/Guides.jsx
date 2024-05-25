@@ -4,11 +4,15 @@ import './Guides.css';
 import Booking from './Booking';
 import Star from './star';
 import { Feedback } from './Feedback';
+import Session from 'react-session-api'
 
-const Guides = ({ userId }) => {
+
+const Guides = ( ) => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [guides, setGuides] = useState([]);
   const [showFeedback, setShowFeedback] = useState(null); // Track which guide's feedback form is open
+
+  const userId=Session.get("user_id")
 
   const openBookingForm = () => {
     setIsBookingOpen(true);
