@@ -10,6 +10,9 @@ import DefaultRoute from './routes/DefaultRoute';
 import Admin from './Admin/Admin';
 import Booking from './components/Booking';
 import { Feedback } from './components/Feedback';
+import { GuideDashboard } from './GuideDashboard/Page/GuideDashboard';
+import User from './Admin/Pages/User';
+import AppRoutes from './Admin/components/AppRoutes';
 const App = () => {
   return (
     <>
@@ -22,10 +25,14 @@ const App = () => {
         <Route path='/service' element={<Service/>}/>
         </Route>
         <Route path="admin" element={<Admin/>}/>
+       <Route path='/' element={<AppRoutes/>}/>
         <Route path='/dashboard' element={<Dashboard/>} />
         <Route path='/guide' element={<Guides/>}/>
         <Route path='/booking' element={<Booking/>}/>
         <Route path='/feedback' element={<Feedback/>}/>
+        <Route path='/guidedashboard' element={<GuideDashboard/>}
+        
+        />
       </Routes>
   </BrowserRouter>
     </>

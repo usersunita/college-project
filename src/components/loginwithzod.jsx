@@ -41,7 +41,7 @@ function LoginForm() {
         if(result.role ==='admin'){
           navigate('/Admin');
         }else if(result.role === 'guide'){
-          navigate('/home')
+          navigate('/guidedashboard')
         }else{
           navigate('/Guide')
         }
