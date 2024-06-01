@@ -1,5 +1,5 @@
 
-import React from 'react';
+/*import React from 'react';
 import { Menu } from "antd";
 import { useNavigate } from 'react-router-dom';
 
@@ -33,5 +33,26 @@ function Sidemenu() {
     </div>
   );
 }
+
+export default Sidemenu;*/
+
+import React from 'react';
+import { Menu } from 'antd';
+import { Link } from 'react-router-dom';
+
+const items = [
+  { label: <Link to="/admindashboard" style={{ backgroundColor: '#fff', marginBottom:'8px'}}>Dashboard</Link>, key: 'admindashboard' },
+  { label: <Link to="/booking">Booking</Link>, key: 'booking' },
+  { label: <Link to="/guides">Guides</Link>, key: 'guides' },
+  { label: <Link to="/tourist_area">Tourist Area</Link>, key: 'tourist_area' },
+  { label: <Link to="/users">Users</Link>, key: 'users' },
+  { label: <Link to="/edit">Edit</Link>, key: 'edit' },
+];
+
+const Sidemenu = () => {
+  return (
+    <Menu mode="vertical" items={items} />
+  );
+};
 
 export default Sidemenu;

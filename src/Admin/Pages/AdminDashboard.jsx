@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 const { Title } = Typography;
 
-function Dashboard() {
+function AdminDashboard() {
   const [usersCount, setUsersCount] = useState(0);
   const [bookingCount, setBookingCount] = useState(0);
   const [touristCount, setTouristCount] = useState(0);
@@ -126,4 +126,4 @@ function RecentInquiries() {
   );
 }
 
-export default Dashboard;
+export default AdminDashboard;

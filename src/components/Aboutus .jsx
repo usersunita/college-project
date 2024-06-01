@@ -1,9 +1,9 @@
 import React from 'react'
-import "./Aboutus.css"
-import Guides from "./Guides"
+import "./Aboutus.css";
 
 const Aboutus = () => {
   return (
+  
     <div className='about-container'>
       <h1>Our Services</h1>
       <p>The service provided by our organization is personalized guided tours. We connect travelers with certified
@@ -18,8 +18,7 @@ const Aboutus = () => {
       <h1>Vision</h1>
       <p>Our vision is to be the most trusted and renowned organization by making satisfactory to the clients.</p>
 
-
-    </div>
+      </div>
   )
 }
 

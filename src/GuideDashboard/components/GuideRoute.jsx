@@ -1,21 +1,23 @@
 import React from 'react'
 import { Routes , Route } from 'react-router-dom'
-import Dashboard from '../Page/Dashboard'
 import Allbooking from '../Page/Allbooking'
-import Alluser from '../Page/Alluser'
-import Edit from '../../Admin/Pages/Edit'
+import Allusers from '../Page/Alluser'
+import Edit from '../Page/Edit'
 import Review from '../Page/Review'
-function AppRoute ()  {
+import Dashboard from '../Page/Dashboard'
+const GuideRoute = () => {
   return (
-<Routes>
+    <div>
+      <Routes>
     <Route path="/" element={<Dashboard/>}/>
     <Route path="/guidebooking" element={<Allbooking/>}/>
-    <Route path="/users" element={<Alluser/>}/>
+    <Route path="/users" element={<Allusers/>}/>
     <Route path="/edit" element={<Edit/>}/>
     <Route path='/review' element={<Review/>}/>
 </Routes>
-
+    </div>
   )
 }
 
-export default AppRoute;
+export default GuideRoute
+

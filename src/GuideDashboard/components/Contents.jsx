@@ -1,10 +1,10 @@
 import React from 'react'
-import AppRoute from '../components/AppRoute'
+import GuideRoute from './GuideRoute'
 
 export const Contents = () => {
   return (
     <div className='pagecontent'>
-      <AppRoute/>
+      <GuideRoute/>
     </div>
   )
 }
