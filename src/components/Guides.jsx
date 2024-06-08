@@ -59,7 +59,6 @@ const Guides = ( ) => {
 
 export default Guides;
 */
-
 import React, { useState, useEffect } from 'react';
 import './Guides.css';
 import Booking from './Booking';
@@ -79,6 +78,14 @@ const Guides = () => {
   const openBookingForm = (guideId) => {
     setGuideId(guideId);
     setIsBookingOpen(true);
+  };
+
+  const openFeedbackForm = (guideId) => {
+    setShowFeedback(guideId);
+  };
+
+  const closeFeedbackForm = () => {
+    setShowFeedback(null);
   };
 
   useEffect(() => {
@@ -122,8 +129,11 @@ const Guides = () => {
                 </div>
                 <div className='profile-button'>
                   <a href='#' onClick={() => openBookingForm(guide.id)}>Send request</a>
+                  <button onClick={() => openFeedbackForm(guide.id)}>Give Feedback</button>
                 </div>
-                {showFeedback === guide.id && <Feedback guideId={guide.id} userId={userId} />}
+                {showFeedback === guide.id && (
+                  <Feedback guideId={guide.id} userId={userId} onClose={closeFeedbackForm} />
+                )}
               </div>
             </div>
           );
@@ -135,3 +145,6 @@ const Guides = () => {
 };
 
 export default Guides;
+
+
+
