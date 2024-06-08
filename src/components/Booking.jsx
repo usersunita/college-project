@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import Session from 'react-session-api';
 
 // Define Zod schema for form validation
 const schema = z.object({
@@ -44,7 +45,7 @@ export default function Booking({ guideId, userId }) {
     // Add guideId and userId to the form data
     const completeData = {
       ...data,
-      guide_id: guideId,
+      guide_id: Number(guideId),
       client_id: userId,
       status: 'pending' // Set the default status
     };
@@ -63,13 +64,10 @@ export default function Booking({ guideId, userId }) {
         body: JSON.stringify(formData),
       })
         .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
           return response.json();
         })
         .then(data => {
-          alert(data.message);
+          console.log(data);
           window.location.reload();
         })
         .catch(error => {
@@ -86,7 +84,7 @@ export default function Booking({ guideId, userId }) {
             <div className='col-md-4'>
               <label htmlFor='date' className='form-label'>Date</label>
               <input
-                type='text'
+                type='date'
                 className={`form-control ${errors.date ? 'is-invalid' : ''}`}
                 id='date'
                 placeholder='dd/mm/yyyy'
@@ -97,7 +95,7 @@ export default function Booking({ guideId, userId }) {
             <div className='col-md-4'>
               <label htmlFor='time' className='form-label'>Time</label>
               <input
-                type='text'
+                type='time'
                 className={`form-control ${errors.time ? 'is-invalid' : ''}`}
                 id='time'
                 placeholder='--:--'
@@ -130,7 +128,7 @@ export default function Booking({ guideId, userId }) {
             <div className='col-md-4'>
               <label htmlFor='person' className='form-label'>Number of Persons</label>
               <input
-                type='text'
+                type='number'
                 placeholder='Number of persons'
                 className={`form-control ${errors.person ? 'is-invalid' : ''}`}
                 id='person'

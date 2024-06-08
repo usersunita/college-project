@@ -19,7 +19,7 @@ const Guides = ( ) => {
   };
 
   useEffect(() => {
-    fetch('http://localhost/php%20backend/profiledata.php')
+    fetch('http://localhost/backend/profiledata.php')
       .then(response => response.json())
       .then(data => setGuides(data))
       .catch(error => console.error('Error fetching guides:', error));
@@ -72,10 +72,12 @@ const Guides = () => {
   const [guides, setGuides] = useState([]);
   const [ratings, setRatings] = useState([]);
   const [showFeedback, setShowFeedback] = useState(null); // Track which guide's feedback form is open
+  const [guideId, setGuideId] = useState(null);
 
   const userId = Session.get("user_id");
 
-  const openBookingForm = () => {
+  const openBookingForm = (guideId) => {
+    setGuideId(guideId);
     setIsBookingOpen(true);
   };
 
@@ -119,7 +121,7 @@ const Guides = () => {
                   <Star stars={average_rating} reviews={reviews_count} />
                 </div>
                 <div className='profile-button'>
-                  <a href='#' onClick={openBookingForm}>Send request</a>
+                  <a href='#' onClick={() => openBookingForm(guide.id)}>Send request</a>
                 </div>
                 {showFeedback === guide.id && <Feedback guideId={guide.id} userId={userId} />}
               </div>
@@ -127,7 +129,7 @@ const Guides = () => {
           );
         })}
       </div>
-      {isBookingOpen && <Booking onClose={() => setIsBookingOpen(false)} />}
+      {isBookingOpen && <Booking onClose={() => setIsBookingOpen(false)} userId={userId} guideId={guideId} />}
     </>
   );
 };
