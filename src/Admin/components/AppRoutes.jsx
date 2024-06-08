@@ -5,19 +5,20 @@ import User from '../Pages/User'
 import Guides from '../../components/Guides'
 import Edit from '../Pages/Edit'
 import Tourist from '../Pages/Tourist'
-import Booking from '../Pages/Booking'
+import GuideBooking from '../Pages/GuideBooking'
+
 
 
 
 function AppRoutes ()  {
   return (
 <Routes>
-  <Route path='/admindashboard' element={<AdminDashboard/>}/>
+  <Route path='/' element={<AdminDashboard/>}/>
   <Route path='/users' element={<User/>}/>
   <Route path='/guides' element={<Guides/>}/>
   <Route path='/edit' element={<Edit/>}/>
   <Route path='/tourist' element={<Tourist/>}/>
-  <Route path='/guidebooking' element={<Booking/>}/>
+  <Route path='/guidebooking' element={<GuideBooking/>}/>
 
 </Routes>
 

@@ -85,9 +85,6 @@ const Trip = () => {
       </div>
         </div>
         </div>
-  
-  
-    
 
   )
 }

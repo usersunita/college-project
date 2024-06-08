@@ -3,7 +3,7 @@ import { Space, Table, Typography,Button, Tag} from 'antd';
 
 const { Title } = Typography;
 
-function Booking() {
+function GuideBooking() {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -138,4 +138,4 @@ function Booking() {
   );
 }
 
-export default Booking;
+export default GuideBooking;

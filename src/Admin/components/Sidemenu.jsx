@@ -1,5 +1,4 @@
-
-/*import React from 'react';
+import React from 'react';
 import { Menu } from "antd";
 import { useNavigate } from 'react-router-dom';
 
@@ -34,8 +33,8 @@ function Sidemenu() {
   );
 }
 
-export default Sidemenu;*/
-
+export default Sidemenu;
+/*
 import React from 'react';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
@@ -56,3 +55,4 @@ const Sidemenu = () => {
 };
 
 export default Sidemenu;
+*/
