@@ -9,7 +9,7 @@ function GuideBooking() {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost/php%20backend/booking.php') // Replace with the path to your PHP script
+    fetch('http://localhost/php%20backend/booking.php') 
       .then(response => response.json())
       .then(data => {
         setBookings(data);
@@ -62,49 +62,18 @@ function GuideBooking() {
 
   const columns = [
     
-    {
-      title: "ID",
-      dataIndex: "id",
-    },{
-      title: "From",
-      dataIndex: "from",
-    },
-    {
-      title: "To",
-      dataIndex: "to",
-    },
-    {
-      title: "Tour Date",
-      dataIndex: "date",
-    },
-    {
-      title: "Time",
-      dataIndex: "time",
-    },
-    {
-      title: "No of Days",
-      dataIndex: "days",
-    },
-    {
-      title: "Destination",
-      dataIndex: "destination",
-    },
-    {
-      title: "No of Person",
-      dataIndex: "person",
-    },
-    {
-      title: "Type of Tour",
-      dataIndex: "type",
-    },
-    {
-      title: "Message for Guide",
-      dataIndex: "message",
-    },
-    {
-      title: "Status",
-      dataIndex: "status",
-    },
+    { title: "ID", dataIndex: "id" },
+    { title: "Client_id", dataIndex: "client_id" },
+    { title: "Guide_id", dataIndex: "guide_id" },
+    { title: "Tour Date", dataIndex: "date" },
+    { title: "Time", dataIndex: "time" },
+    { title: "No of Days", dataIndex: "days" },
+    { title: "Destination", dataIndex: "destination" },
+    { title: "No of Person", dataIndex: "person" },
+    { title: "Type of Tour", dataIndex: "type" },
+    { title: "Message for Guide", dataIndex: "message" },
+    { title: "Status", dataIndex: "status" },
+    
     {
       title: "Action",
       render: (_, record) => (

@@ -7,13 +7,13 @@ const { Title } = Typography;
 function AdminDashboard() {
   const [usersCount, setUsersCount] = useState(0);
   const [bookingCount, setBookingCount] = useState(0);
-  const [touristCount, setTouristCount] = useState(0);
+  const [reviewCount, setReviewCount] = useState(0);
   const [guidesCount, setGuidesCount] = useState(0);
   
   useEffect(() => {
     fetchUsersCount();
     fetchBookingCount();
-    fetchTouristCount();
+    fetchReviewCount();
     fetchGuidesCount();
   }, []);
 
@@ -37,11 +37,11 @@ function AdminDashboard() {
     }
   };
 
-  const fetchTouristCount = async () => {
+  const fetchReviewCount = async () => {
     try {
-      const response = await fetch('http://localhost/php%20backend/tourist_count.php');
+      const response = await fetch('http://localhost/php%20backend/reviewcount.php');
       const data = await response.json();
-      setTouristCount(data.count);
+      setReviewCount(data.count);
     } catch (error) {
       console.error('Error fetching tourist count:', error);
     }
@@ -64,7 +64,7 @@ function AdminDashboard() {
         <Space direction="horizontal">
           <DashboardCard title={"Users"} value={usersCount} />
           <DashboardCard title={"Booking"} value={bookingCount} />
-          <DashboardCard title={"Tourist"} value={touristCount} />
+           <DashboardCard title={"Review"} value={reviewCount} /> 
           <DashboardCard title={"Guides"} value={guidesCount} />
         </Space>
         <Space>

@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import { Routes , Route } from 'react-router-dom'
 import Allbooking from '../Page/Allbooking'
 import Allusers from '../Page/Alluser'
@@ -9,6 +9,7 @@ const GuideRoute = () => {
   return (
     <div>
       <Routes>
+        
     <Route path="/" element={<Dashboard/>}/>
     <Route path="/guidebooking" element={<Allbooking/>}/>
     <Route path="/users" element={<Allusers/>}/>
@@ -19,5 +20,5 @@ const GuideRoute = () => {
   )
 }
 
-export default GuideRoute
+export default GuideRoute*/
 

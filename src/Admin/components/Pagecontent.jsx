@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import AppRoutes from './AppRoutes'
 
 
@@ -10,4 +10,5 @@ function Pagecontent () {
   )
 }
 
-export default Pagecontent
+export default Pagecontent;
+*/

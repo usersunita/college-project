@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import './Guide.css'
 import Headers from '../components/Headers'
 import Menus from '../components/Menus'
@@ -15,4 +15,4 @@ export const GuideDashboard = () => {
     <Footer/>
   </div>
   )
-}
+}*/

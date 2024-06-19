@@ -12,7 +12,7 @@ const Trip = () => {
     <div >
       <div className='trip'>
         <h1>Tourist Area</h1>
-        <p>You can descover unique places with ta best guide</p>
+        <h4>You can descover unique places with ta best guide</h4>
         
       <div className='t-card'>
         <div className='t-image'>

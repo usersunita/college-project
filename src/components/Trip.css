@@ -1,38 +1,49 @@
+/* Trip.css */
+
 .trip {
-  margin: 4rem 6rem;
+  margin: 4rem auto; /* Center the trip content and add top/bottom margin */
   color: #2a2a2a;
-  overflow: hidden;
+  max-width: 1200px; /* Limit width to ensure content doesn't stretch too wide */
+  padding: 0 1rem; /* Add padding to center content and provide breathing room */
 }
 
 .trip h1 {
   font-size: 3rem;
   text-align: center;
 }
-
 .trip p {
-  text-align: center;
+  text-align: left; /* Align text to the left */
+  margin-bottom: 2rem; /* Add bottom margin to separate paragraphs */
+  text-indent: 1.5rem; /* Indent the first line of each paragraph */
+  line-height: 1.6; /* Adjust line height for better readability */
 }
+
 
 .t-card {
   display: flex;
   flex-wrap: wrap;
+  width:auto;
   justify-content: space-between;
-  margin: 0 -1rem; /* Adjust negative margin to counteract the margin from .t-image */
+  margin: 0 -1rem; /* Adjust negative margin to counteract the padding from .t-image */
 }
 
 .t-image {
   flex: 0 0 calc(33.33% - 2rem); /* Adjust width of each card to fit three in a row */
-  width: 300px; /* Set a fixed width for each card */
-  margin-bottom: 2rem; /* Adjust spacing between cards */
-  padding: 0 1rem; /* Add horizontal padding */
+  margin: 0 1rem; /* Add horizontal margin to create space between cards */
+  margin-bottom: 2rem; /* Add bottom margin for spacing between rows */
+  padding: 1rem; /* Add padding inside each card for spacing */
   box-sizing: border-box; /* Ensure padding is included in the width calculation */
   text-align: center; /* Center align content */
+  background-color: #f9f9f9; /* Light background color for each card */
+  border-radius: 10px; /* Rounded corners for cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .t-image img {
   width: 100%;
   max-height: 250px;
-  border-radius: 7px;
+  object-fit: cover; /* Ensure images maintain aspect ratio and cover their container */
+  border-radius: 10px; /* Rounded corners for images */
 }
 
 .t-image h4 {
@@ -41,4 +52,7 @@
 
 .t-image p {
   margin-top: 1rem; /* Adjust spacing between heading and paragraph */
+  font-size: 0.9rem; /* Adjust font size for paragraph text */
+  line-height: 1.5; /* Improve readability with slightly increased line height */
+  color: #555; /* Adjust text color */
 }

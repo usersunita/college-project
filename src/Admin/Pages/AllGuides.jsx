@@ -4,7 +4,7 @@ import { Typography, Table, Button, message } from 'antd';
 
 const { Title } = Typography;
 
-const Guides = () => {
+const AllGuides = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -52,6 +52,7 @@ const Guides = () => {
       render: (text) => <img src={`http://localhost/uploads/${text}`} alt="guide" style={{ width: '100px' }} />,
     },
     { title: 'Skills', dataIndex: 'skills', key: 'skills' },
+    { title: 'Areas', dataIndex: 'area', key: 'area' },
     {
       title: 'Action',
       key: 'action',
@@ -71,4 +72,4 @@ const Guides = () => {
   );
 };
 
-export default Guides;
+export default AllGuides;

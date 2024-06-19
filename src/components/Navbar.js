@@ -80,7 +80,7 @@ import Register from './Register';
 
 // Set the app element for the modal
 Modal.setAppElement('#root');
-/*const customStyles = {
+const customStyles = {
   content: {
     top: '50%',
     left: '50%',
@@ -88,8 +88,10 @@ Modal.setAppElement('#root');
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    padding: '0', // Remove padding to rely on CSS class
+    border: 'none', // Remove border to rely on CSS class
   },
-};*/
+};
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
@@ -123,9 +125,10 @@ const Navbar = () => {
       <Modal
         isOpen={openModal}
         onRequestClose={toggleModal}
+        // style={customStyles}
       >
-        <button onClick={toggleModal}>Close</button>
-        <div>
+        <button className="modal-close-button" onClick={toggleModal}>Close</button>
+        <div className="modal-content">
           <Register />
         </div>
       </Modal>
@@ -134,4 +137,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

@@ -1,39 +1,80 @@
 .App{
-  display:flex;
-flex-direction: column;
-width: 100vw;
-height: 100vh;
-}
-.header{
-height: 50px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 4px 20px 4px 12px;
-border-bottom: 1px solid rgba(0,0,0,0.15);
-}
-.footer{
-height: 50px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-border-top: 1px solid rgba(0,0,0,0.15);
-padding: 30px 25px 30px;
-
-}
-.sidemenuandpagecontent{
-display: flex;
-flex: 1;
-justify-content: flex-start;
-align-items: flex-start;
-background-color:rgba(0,0,0,0.10);
-}
-.pagecontent{
-padding-left: 12px;
-}
-.sidemenu{
-height: 100%;
-}
-.Sidemenuvertical{
+    display:flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  }
+  .header{
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 20px 4px 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  }
+  .footer{
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0,0,0,0.15);
+  padding: 30px 25px 30px;
+  
+  }
+  .sidemenuandpagecontent{
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color:rgba(0,0,0,0.10);
+  }
+  .pagecontent{
+  padding-left: 12px;
+  }
+  .sidemenu{
   height: 100%;
-}
+  }
+  .Sidemenuvertical{
+    height: 100%;
+  }
+  
+  .sidemenu {
+    position: fixed;
+    width: 200px; 
+    height: 100%;
+    background-color: #f0f2f5;
+    overflow-y: auto; 
+  }
+  
+  .Sidemenuvertical ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .Sidemenuvertical li {
+    margin-bottom: 8px;
+  }
+  
+  .Sidemenuvertical a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .Sidemenuvertical a:hover, 
+  .Sidemenuvertical a.active {
+    background-color: #1890ff;
+    color: #fff;
+  }
+  
+  .content {
+    margin-left: 200px;
+    padding: 20px;
+    background-color: #fff;
+    min-height: 100vh; 
+  }

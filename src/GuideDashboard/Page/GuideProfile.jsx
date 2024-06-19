@@ -52,6 +52,7 @@ const GuideProfile = () => {
       render: (text) => <img src={`http://localhost/uploads/${text}`} alt="guide" style={{ width: '100px' }} />,
     },
     { title: 'Skills', dataIndex: 'skills', key: 'skills' },
+    { title: 'Areas', dataIndex: 'area', key: 'area' },
     {
       title: 'Action',
       key: 'action',

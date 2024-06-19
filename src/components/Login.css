@@ -1,5 +1,4 @@
 
-
   .login-form-overlay {
     position: fixed;
     top: 0;
@@ -14,25 +13,25 @@
   }
   
   .login-form-container {
-    background: blue; /* Set the background color to blue */
+    background: gray; /* Set the background color to blue */
     padding: 2rem;
     border-radius: 10px;
     width: 300px;
     max-width: 90%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative; /* Ensure the close button is positioned relative to the container */
-    color: white; /* Set the text color to white */
+    color: black; /* Set the text color to white */
   }
   
   .close-btn {
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Decreased size */
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
-    color: red; /* Set the color to red */
+    color: black; /* Set the color to black */
   }
   
   .close-btn:hover {
@@ -59,8 +58,8 @@
   }
   
   .login-form-container button[type="submit"] {
-    background: white; /* Set the background color to white */
-    color: blue; /* Set the text color to blue */
+    background: blue; /* Set the background color to blue */
+    color: white; /* Set the text color to white */
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
@@ -69,6 +68,6 @@
   }
   
   .login-form-container button[type="submit"]:hover {
-    background: lightgray; /* Lighten the background color on hover */
+    background: darkblue; /* Darken the background color on hover */
   }
   
