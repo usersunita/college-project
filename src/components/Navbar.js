@@ -125,7 +125,7 @@ const Navbar = () => {
       <Modal
         isOpen={openModal}
         onRequestClose={toggleModal}
-        // style={customStyles}
+        //  style={customStyles}
       >
         <button className="modal-close-button" onClick={toggleModal}>Close</button>
         <div className="modal-content">

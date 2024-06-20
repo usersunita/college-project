@@ -1,4 +1,4 @@
-/*.register{
+/* .register{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
     margin-top: 3%;
     padding: 3%;
@@ -78,10 +78,10 @@
 }
 .register-heading{
     text-align: center;
-    margin-top: 25%;
+    margin-top: 15%;
     margin-bottom: -15%;
     color: #495057;
-}*/
+} */
 .register {
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
     margin-top: 3%;
@@ -96,11 +96,11 @@
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    width: 60%;
+    width: 40%;
     background: #f8f9fa;
     font-weight: bold;
     color: #383d41;
-    margin-top: 30%;
+    margin-top: 8%;
     margin-bottom: 3%;
     cursor: pointer;
 }
@@ -116,19 +116,19 @@
 }
 .register .register-form {
     padding: 10%;
-    margin-top: 20%;
+    margin-top: 10%;
 }
 .form-input {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
 .btnRegister {
     float: right;
-    margin-top: 20%;
+    margin-top: 10%;
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
@@ -167,7 +167,7 @@
 }
 .register-heading {
     text-align: center;
-    margin-top: 25%;
+    margin-top: 15%;
     margin-bottom: -15%;
     color: #495057;
 }
