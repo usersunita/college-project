@@ -12,7 +12,7 @@ const Trip = () => {
     <div >
       <div className='trip'>
         <h1>Tourist Area</h1>
-        <h4>You can descover unique places with ta best guide</h4>
+        <paragraph>You can descover unique places with ta best guide</paragraph>
         
       <div className='t-card'>
         <div className='t-image'>
@@ -78,9 +78,7 @@ const Trip = () => {
             <p>This is one of the more adventurous treks in the Everest region of the Himalayas, following the high route
                pass of Cho La (5330m) into the Base Camp of Mount Everest. This ascent follows the Dudh Koshi and Khumbu
                 valleys from the homeland of the Sherpa people to the Gokyo valley, which provides breath-taking views of
-                 four 8,000m peaks; Everest, Cho Oyu, Makalu and the largest glacier in Nepal, the Ngozumpa glacier.
-                  We visit the turquoise Gokyo lakes before following the high route pass of Cho La (5330m) and then drop
-                   into the Khumbu Valley and the base camp of Mount Everest.  </p>
+                 four 8,000m peaks  </p>
         </div>
       </div>
         </div>

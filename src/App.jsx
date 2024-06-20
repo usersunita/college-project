@@ -15,10 +15,12 @@ import Review from './GuideDashboard/Page/Review';
 import Tourist from './Admin/Pages/Tourist';
 import Allbooking from './GuideDashboard/Page/Allbooking';
 import AdminDashboard from './Admin/Pages/AdminDashboard';
+import Reviews from './Admin/Pages/Reviews';
 import Dashboard from './GuideDashboard/Page/Dashboard';
 import AdminLayout from './Admin/components/AdminLayout';
 import GuideLayout from './GuideDashboard/components/GuideLayout';
 import UpdateHeroForm from './components/UpdateHeroForm';
+import Logout from './Admin/Pages/Logout';
 
 const App = () => {
   return (
@@ -42,14 +44,13 @@ const App = () => {
             <Route path="tourist" element={<Tourist />} />
             <Route path="guidebooking" element={<GuideBooking />} />
             <Route path="edit" element={<Edit />} />
-            <Route path="review" element={<Review />} />
+            <Route path="reviews" element={<Reviews/>} />
+           
           </Route>
 
           <Route path="/guide" element={<GuideLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="dashboard" element={<Dashboard />} />
-            <Route path="allguide" element={<AllGuides />} />
-            <Route path="users" element={<User />} />
             <Route path="booking" element={<Allbooking />} />
             <Route path="edit" element={<Edit />} />
             <Route path="review" element={<Review />} />
@@ -57,6 +58,7 @@ const App = () => {
 
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/heroupdate" element={<UpdateHeroForm />} />
+          <Route path='logout' element={<Logout/>}/>
         </Routes>
       </BrowserRouter>
     </React.Fragment>

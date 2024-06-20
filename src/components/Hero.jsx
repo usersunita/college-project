@@ -23,7 +23,7 @@ const Hero = () => {
 
       <div className='hero-text'>
         <h1>Let's Make Wonderful Memories</h1>
-        <p>Choose your preferred Guide</p>
+        <p>Login to choose your preferred Guide</p>
         <a href='/' className='btnClass' onClick={handleLoginClick}>
           <span className='show'>Log in</span>
         </a>

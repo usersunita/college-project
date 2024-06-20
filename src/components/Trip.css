@@ -1,21 +1,27 @@
-/* Trip.css */
+
 
 .trip {
-  margin: 4rem auto; /* Center the trip content and add top/bottom margin */
+  margin: 4rem auto; 
   color: #2a2a2a;
-  max-width: 1200px; /* Limit width to ensure content doesn't stretch too wide */
-  padding: 0 1rem; /* Add padding to center content and provide breathing room */
+  max-width: 1200px; 
+  padding: 0 1rem;
 }
 
 .trip h1 {
   font-size: 3rem;
   text-align: center;
 }
+.trip paragraph{
+  text-align: left;
+  margin-bottom: 2rem;
+  text-indent: 1.5rem; 
+  line-height: 1.6; 
+}
 .trip p {
-  text-align: left; /* Align text to the left */
-  margin-bottom: 2rem; /* Add bottom margin to separate paragraphs */
-  text-indent: 1.5rem; /* Indent the first line of each paragraph */
-  line-height: 1.6; /* Adjust line height for better readability */
+  text-align: left;
+  margin-bottom: 2rem;
+  text-indent: 1.5rem; 
+  line-height: 1.6; 
 }
 
 
@@ -24,35 +30,35 @@
   flex-wrap: wrap;
   width:auto;
   justify-content: space-between;
-  margin: 0 -1rem; /* Adjust negative margin to counteract the padding from .t-image */
+  margin: 0 -1rem; 
 }
 
 .t-image {
-  flex: 0 0 calc(33.33% - 2rem); /* Adjust width of each card to fit three in a row */
-  margin: 0 1rem; /* Add horizontal margin to create space between cards */
-  margin-bottom: 2rem; /* Add bottom margin for spacing between rows */
-  padding: 1rem; /* Add padding inside each card for spacing */
-  box-sizing: border-box; /* Ensure padding is included in the width calculation */
-  text-align: center; /* Center align content */
-  background-color: #f9f9f9; /* Light background color for each card */
-  border-radius: 10px; /* Rounded corners for cards */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  flex: 0 0 calc(33.33% - 2rem);
+  margin: 0 1rem; 
+  margin-bottom: 2rem; 
+  padding: 1rem; 
+  box-sizing: border-box; 
+  text-align: center; 
+  background-color: #f9f9f9;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .t-image img {
   width: 100%;
   max-height: 250px;
-  object-fit: cover; /* Ensure images maintain aspect ratio and cover their container */
-  border-radius: 10px; /* Rounded corners for images */
+  object-fit: cover;
+  border-radius: 10px; 
 }
 
 .t-image h4 {
-  margin-top: 1rem; /* Adjust spacing between image and heading */
+  margin-top: 1rem; 
 }
 
 .t-image p {
-  margin-top: 1rem; /* Adjust spacing between heading and paragraph */
-  font-size: 0.9rem; /* Adjust font size for paragraph text */
-  line-height: 1.5; /* Improve readability with slightly increased line height */
-  color: #555; /* Adjust text color */
+  margin-top: 1rem; 
+  font-size: 0.9rem; 
+  line-height: 1.5; 
+  color: #555;
 }

@@ -186,7 +186,7 @@ const Sidemenu = () => {
           </li>
           <li style={menuItemStyle}>
             <NavLink
-              to="/admin/review"
+              to="/admin/reviews"
               style={({ isActive }) => (isActive ? { ...linkStyle, ...activeLinkStyle } : linkStyle)}
             >
               All Review
@@ -194,7 +194,7 @@ const Sidemenu = () => {
           </li>
           <li style={menuItemStyle}>
             <NavLink
-              to="/admin/logout"
+              to="/logout"
               style={({ isActive }) => (isActive ? { ...linkStyle, ...activeLinkStyle } : linkStyle)}
             >
               Log Out
