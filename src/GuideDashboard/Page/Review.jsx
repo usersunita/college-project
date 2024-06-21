@@ -26,7 +26,7 @@
 //     { title: 'Feedback', dataIndex: 'feedback' },
 //     { title: 'Client_id', dataIndex: 'client_id' },
 //     { title: 'Guide_id', dataIndex: 'guide_id' },
-    
+
 //   ];
 
 //   return (
@@ -58,7 +58,7 @@ function Review() {
   useEffect(() => {
     if (userId) {
       setLoading(true);
-      fetch(`http://localhost/php%20backend/reviewdata.php`, {
+      fetch(`http://localhost/php%20backend/reviewdata.php?userId=${userId}`, {
         credentials: 'include' // Include credentials to handle session cookies
       })
         .then(response => {

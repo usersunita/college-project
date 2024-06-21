@@ -243,7 +243,7 @@ function Allbooking() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost/php%20backend/allbooking.php?user_id=${userId}`, {
+    fetch(`http://localhost/php%20backend/allbooking.php?userId=${userId}`, {
       credentials: 'include' // This ensures cookies are sent with the request
     })
       .then(response => response.json())
