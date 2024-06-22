@@ -391,7 +391,7 @@ const Registration = () => {
         phonenumber: '',
         qualification: null,
         experience: null,
-        photo: null // Add a state for photo file
+        photo: null
     });
 
     const [clientFormData, setClientFormData] = useState({
@@ -424,7 +424,7 @@ const Registration = () => {
 
     const handleTabChange = (tab) => {
         setActiveTab(tab);
-        setErrorMessage(''); // Reset error message on tab change
+        setErrorMessage(''); 
     };
 
     const handleClick = () => {
@@ -465,7 +465,7 @@ const Registration = () => {
             if (contentType && contentType.includes('application/json')) {
                 const data = await response.json();
                 if (data.success) {
-                    navigate('/login');  // Navigate to login route upon successful registration
+                    navigate('/login'); 
                 } else {
                     console.error('Registration failed');
                 }

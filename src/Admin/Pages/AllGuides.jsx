@@ -31,7 +31,7 @@ const AllGuides = () => {
       const result = await response.json();
       if (result.success) {
         message.success(result.message);
-        fetchData(); // Refresh data after successful delete
+        fetchData(); 
       } else {
         message.error(result.message);
       }

@@ -78,7 +78,7 @@ import { NavLink } from 'react-router-dom';
 import Modal from "react-modal";
 import Register from './Register';
 
-// Set the app element for the modal
+
 Modal.setAppElement('#root');
 const customStyles = {
   content: {
@@ -88,8 +88,8 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    padding: '0', // Remove padding to rely on CSS class
-    border: 'none', // Remove border to rely on CSS class
+    padding: '0', 
+    border: 'none', 
   },
 };
 

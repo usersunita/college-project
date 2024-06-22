@@ -1,3 +1,15 @@
+// import React from 'react'
+
+// const ViewRequest = () => {
+//   return (
+//     <div>
+      
+//     </div>
+//   )
+// }
+
+// export default ViewRequest
+
 
 import React, { useEffect, useState } from 'react';
 import { Space, Table, Typography, Button, Tag } from 'antd';
@@ -5,15 +17,15 @@ import Session from 'react-session-api';
 
 const { Title } = Typography;
 
-function Allbooking() {
+function ViewRequest() {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(false);
   const userId = Session.get("user_id");
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost/php%20backend/allbooking.php?userId=${userId}`, {
-      credentials: 'include'
+    fetch(`http://localhost/php%20backend/viewrequest.php?userId=${userId}`, {
+      credentials: 'include' // This ensures cookies are sent with the request
     })
       .then(response => response.json())
       .then(data => {
@@ -28,7 +40,7 @@ function Allbooking() {
 
   const handleDelete = (id) => {
     setLoading(true);
-    fetch(`http://localhost/php%20backend/allbooking.php?action=delete&id=${id}`, {
+    fetch(`http://localhost/php%20backend/viewrequest.php?action=delete&id=${id}`, {
       credentials: 'include' // This ensures cookies are sent with the request
     })
       .then(response => response.json())
@@ -47,7 +59,7 @@ function Allbooking() {
 
   const handleAccept = (id) => {
     setLoading(true);
-    fetch(`http://localhost/php%20backend/allbooking.php?action=accept&id=${id}`, {
+    fetch(`http://localhost/php%20backend/viewrequest.php?action=accept&id=${id}`, {
       credentials: 'include' // This ensures cookies are sent with the request
     })
       .then(response => response.json())
@@ -114,4 +126,4 @@ function Allbooking() {
   );
 }
 
-export default Allbooking;
+export default ViewRequest;

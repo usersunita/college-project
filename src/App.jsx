@@ -21,6 +21,7 @@ import AdminLayout from './Admin/components/AdminLayout';
 import GuideLayout from './GuideDashboard/components/GuideLayout';
 import UpdateHeroForm from './components/UpdateHeroForm';
 import Logout from './Admin/Pages/Logout';
+import ViewRequest from './components/ViewRequest';
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="contact" element={<Contact />} />
             <Route path="service" element={<Service />} />
             <Route path="guides" element={<Guides />} />
+            {/* <Route path='/viewrequest' element={<ViewRequest/>}/> */}
           </Route>
 
           <Route path="/admin" element={<AdminLayout />}>

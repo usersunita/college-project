@@ -176,7 +176,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import Session from 'react-session-api';
 
-// Define Zod schema for form validation
 const schema = z.object({
   date: z.string().nonempty('Date is required'),
   time: z.string().nonempty('Time is required'),
@@ -213,12 +212,11 @@ export default function Booking({ guideId, userId }) {
   const [formData, setFormData] = useState(null);
 
   const onSubmit = (data) => {
-    // Add guideId and userId to the form data
     const completeData = {
       ...data,
       guide_id: Number(guideId),
       client_id: userId,
-      status: 'pending' // Set the default status
+      status: 'pending' 
     };
 
     console.log('Form submitted:', completeData);
@@ -247,7 +245,7 @@ export default function Booking({ guideId, userId }) {
     }
   }, [formData]);
 
-  // Custom validation function for date field
+
   const validateDate = (value) => {
     const today = new Date();
     const maxDate = new Date(today.getFullYear(), today.getMonth() + 5, today.getDate()); // 5 months from today

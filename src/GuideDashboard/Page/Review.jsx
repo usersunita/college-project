@@ -1,48 +1,4 @@
-// import React, { useEffect, useState } from 'react';
-// import { Table, Typography, Button, Space } from 'antd';
 
-// const { Title } = Typography;
-
-// function Review() {
-//   const [review, setreview] = useState([]);
-//   const [loading, setLoading] = useState(false);
-
-//   useEffect(() => {
-//     setLoading(true);
-//     fetch('http://localhost/php%20backend/feedbackdata.php')
-//       .then(response => response.json())
-//       .then(data => {
-//         setreview(data);
-//         setLoading(false);
-//       })
-//       .catch(error => {
-//         console.error('Error fetching review:', error);
-//         setLoading(false);
-//       });
-//   }, []);
-//   const columns = [
-//     { title: 'ID', dataIndex: 'id' },
-//     { title: 'Rating', dataIndex: 'rating' },
-//     { title: 'Feedback', dataIndex: 'feedback' },
-//     { title: 'Client_id', dataIndex: 'client_id' },
-//     { title: 'Guide_id', dataIndex: 'guide_id' },
-
-//   ];
-
-//   return (
-//     <>
-//       <Title level={4}>All Feedbacks</Title>
-//       <Table
-//         columns={columns}
-//         dataSource={review}
-//         loading={loading}
-//         pagination={{ pageSize: 3 }}
-//       />
-//     </>
-//   );
-// }
-
-// export default Review;
 
 import React, { useEffect, useState } from 'react';
 import { Table, Typography, message } from 'antd';
@@ -53,13 +9,13 @@ const { Title } = Typography;
 function Review() {
   const [review, setReview] = useState([]);
   const [loading, setLoading] = useState(false);
-  const userId = Session.get("user_id"); // Get user_id from session
+  const userId = Session.get("user_id");
 
   useEffect(() => {
     if (userId) {
       setLoading(true);
       fetch(`http://localhost/php%20backend/reviewdata.php?userId=${userId}`, {
-        credentials: 'include' // Include credentials to handle session cookies
+        credentials: 'include'
       })
         .then(response => {
           if (!response.ok) {
@@ -68,7 +24,7 @@ function Review() {
           return response.json();
         })
         .then(data => {
-          console.log('Fetched data:', data); // Log the fetched data for debugging
+          console.log('Fetched data:', data); 
           if (Array.isArray(data)) {
             setReview(data);
           } else {
@@ -100,7 +56,7 @@ function Review() {
         dataSource={review}
         loading={loading}
         pagination={{ pageSize: 3 }}
-        rowKey="id" // Ensure each row has a unique key
+        rowKey="id" 
       />
     </>
   );

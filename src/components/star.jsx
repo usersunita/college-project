@@ -28,4 +28,4 @@ export const Star = ({ stars, reviews }) => {
   );
 };
 
-export default Star; // Export as default
+export default Star;

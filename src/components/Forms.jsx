@@ -29,8 +29,8 @@ const Forms = () => {
     })
     .then(response => response.text())
     .then(data => {
-      alert(data); // Alert the response from the PHP script
-      window.location.reload(); // Reload the page after form submission
+      alert(data); 
+      window.location.reload(); 
     })
     .catch(error => {
       console.error('Error:', error);
