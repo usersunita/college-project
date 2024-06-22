@@ -10,7 +10,6 @@
 
 // export default ViewRequest
 
-
 import React, { useEffect, useState } from 'react';
 import { Space, Table, Typography, Button, Tag } from 'antd';
 import Session from 'react-session-api';
@@ -25,7 +24,7 @@ function ViewRequest() {
   useEffect(() => {
     setLoading(true);
     fetch(`http://localhost/php%20backend/viewrequest.php?userId=${userId}`, {
-      credentials: 'include' // This ensures cookies are sent with the request
+      credentials: 'include' 
     })
       .then(response => response.json())
       .then(data => {
