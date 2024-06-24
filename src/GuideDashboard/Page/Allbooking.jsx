@@ -29,7 +29,7 @@ function Allbooking() {
   const handleDelete = (id) => {
     setLoading(true);
     fetch(`http://localhost/php%20backend/allbooking.php?action=delete&id=${id}`, {
-      credentials: 'include' // This ensures cookies are sent with the request
+      credentials: 'include'
     })
       .then(response => response.json())
       .then(data => {
@@ -48,7 +48,7 @@ function Allbooking() {
   const handleAccept = (id) => {
     setLoading(true);
     fetch(`http://localhost/php%20backend/allbooking.php?action=accept&id=${id}`, {
-      credentials: 'include' // This ensures cookies are sent with the request
+      credentials: 'include' 
     })
       .then(response => response.json())
       .then(data => {
@@ -105,7 +105,7 @@ function Allbooking() {
         <Title level={4}>All Booking</Title>
         <Table
           columns={columns}
-          dataSource={Array.isArray(bookings) ? bookings : []} // Ensure bookings is always an array
+          dataSource={Array.isArray(bookings) ? bookings : []} 
           loading={loading}
           pagination={{ pageSize: 3 }}
         />
