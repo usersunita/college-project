@@ -247,54 +247,27 @@ export default function Booking({ guideId, userId }) {
 
 
   const validateDate = (value) => {
-    const today = new Date();
-    const maxDate = new Date(today.getFullYear(), today.getMonth() + 5, today.getDate()); // 5 months from today
+    // const today = new Date();
+    // const maxDate = new Date(today.getFullYear(), today.getMonth() + 5, today.getDate()); // 5 months from today
 
-    const selectedDate = new Date(value);
-    if (selectedDate < today || selectedDate > maxDate) {
-      return 'Date must be between today and 5 months in advance.';
-    }
+    // const selectedDate = new Date(value);
+    // if (selectedDate < today || selectedDate > maxDate) {
+    //   return 'Date must be between today and 5 months in advance.';
+    // }
+
+    var selectedDate = new Date(document.getElementById('date').value);
+    var currentDate = new Date().toISOString().split('T')[0];
+
+    document.getElementById('date').setAttribute('min', currentDate)
+
     return true;
   };
 
   return (
     <>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <form onSubmit={handleSubmit(onSubmit)} method="POST">
+        <form onSubmit={handleSubmit(onSubmit)} method="POST" onChange={validateDate}>
           <div className='row g-3'>
-            <div className='col-md-4'>
-              <label htmlFor='date' className='form-label'>Date</label>
-              <input
-                type='date'
-                className={`form-control ${errors.date ? 'is-invalid' : ''}`}
-                id='date'
-                placeholder='dd/mm/yyyy'
-                {...register('date', { validate: validateDate })}
-              />
-              {errors.date && <div className='invalid-feedback'>{errors.date.message}</div>}
-            </div>
-            <div className='col-md-4'>
-              <label htmlFor='time' className='form-label'>Time</label>
-              <input
-                type='time'
-                className={`form-control ${errors.time ? 'is-invalid' : ''}`}
-                id='time'
-                placeholder='--:--'
-                {...register('time')}
-              />
-              {errors.time && <div className='invalid-feedback'>{errors.time.message}</div>}
-            </div>
-            <div className='col-md-4'>
-              <label htmlFor='days' className='form-label'>Days</label>
-              <input
-                type='number'
-                className={`form-control ${errors.days ? 'is-invalid' : ''}`}
-                id='days'
-                placeholder='Number of days of tour'
-                {...register('days')}
-              />
-              {errors.days && <div className='invalid-feedback'>{errors.days.message}</div>}
-            </div>
             <div className='col-md-4'>
               <label htmlFor='destination' className='form-label'>Destination</label>
               <input
@@ -330,6 +303,40 @@ export default function Booking({ guideId, userId }) {
               </select>
               {errors.type && <div className='invalid-feedback'>{errors.type.message}</div>}
             </div>
+              <div className='col-md-4'>
+                <label htmlFor='date' className='form-label'>Date</label>
+                <input
+                  type='date'
+                  
+                  className={`form-control ${errors.date ? 'is-invalid' : ''}`}
+                  id='date'
+                  placeholder='dd/mm/yyyy'
+                  {...register('date', { validate: validateDate })}
+                />
+                {errors.date && <div className='invalid-feedback'>{errors.date.message}</div>}
+              </div>
+              <div className='col-md-4'>
+                <label htmlFor='time' className='form-label'>Time</label>
+                <input
+                  type='time'
+                  className={`form-control ${errors.time ? 'is-invalid' : ''}`}
+                  id='time'
+                  placeholder='--:--'
+                  {...register('time')}
+                />
+                {errors.time && <div className='invalid-feedback'>{errors.time.message}</div>}
+              </div>
+              <div className='col-md-4'>
+                <label htmlFor='days' className='form-label'>Days</label>
+                <input
+                  type='number'
+                  className={`form-control ${errors.days ? 'is-invalid' : ''}`}
+                  id='days'
+                  placeholder='Number of days of tour'
+                  {...register('days')}
+                />
+                {errors.days && <div className='invalid-feedback'>{errors.days.message}</div>}
+              </div>
             <div className='col-md-12'>
               <label htmlFor='message' className='form-label'>Write Something</label>
               <textarea
